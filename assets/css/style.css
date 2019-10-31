@@ -3,6 +3,7 @@ body {
     background-size: cover, auto, auto;
     background-position: auto;
     background-repeat: no-repeat;
+    background-attachment: fixed;
     list-style-position: inside;
 }
 
