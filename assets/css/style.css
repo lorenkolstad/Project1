@@ -34,5 +34,10 @@ body {
   }
 
   #main-bio {
-      background-color: #92998280;
+    background-color: #92998280;
+    position: relative;
+    padding: 50px;
+    box-shadow: 0 5px 15px rgba(0,0,0,.5);
+    align-self: center;
+    align-self: stretch;
   }
