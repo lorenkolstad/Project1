@@ -5,12 +5,9 @@ body {
     background-repeat: no-repeat;
     background-attachment: fixed;
     list-style-position: inside;
-<<<<<<< HEAD
     display: flex;
     min-height: 100vh;
     flex-direction: column;
-=======
->>>>>>> bcb04f4a742d856124a963279830cf871406972b
 }
 
 #nav-div {
@@ -18,7 +15,6 @@ body {
 }
 
 #nav-logo {
-<<<<<<< HEAD
     padding-left: 75px
 
 }
@@ -45,7 +41,6 @@ main {
 }
 
 #main-bio {
-=======
     padding-left: 15px;
 }
 
@@ -68,15 +63,10 @@ body {
   }
 
   #main-bio {
->>>>>>> bcb04f4a742d856124a963279830cf871406972b
     background-color: #92998280;
     position: relative;
     padding: 50px;
     box-shadow: 0 5px 15px rgba(0,0,0,.5);
     align-self: center;
     align-self: stretch;
-<<<<<<< HEAD
 }
-=======
-  }
->>>>>>> bcb04f4a742d856124a963279830cf871406972b
