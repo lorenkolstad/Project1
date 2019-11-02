@@ -5,6 +5,9 @@ body {
     background-repeat: no-repeat;
     background-attachment: fixed;
     list-style-position: inside;
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
 }
 
 #nav-div {
@@ -14,12 +17,6 @@ body {
 #nav-logo {
     padding-left: 15px;
 }
-
-body {
-    display: flex;
-    min-height: 100vh;
-    flex-direction: column;
-  }
 
   main {
     flex: 1 0 auto;
