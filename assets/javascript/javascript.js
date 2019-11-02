@@ -1,16 +1,16 @@
+M.toast({html: 'I am a toast!', classes: 'rounded'})
 
-
-var firebaseConfig = {
-    apiKey: "AIzaSyCi2FqKo_Pwcj7Z_ImIJ4Rlwy89QRwjOL8",
-    authDomain: "project1-18df4.firebaseapp.com",
-    databaseURL: "https://project1-18df4.firebaseio.com",
-    projectId: "project1-18df4",
-    storageBucket: "project1-18df4.appspot.com",
-    messagingSenderId: "178823515374",
-    appId: "1:178823515374:web:91f4ee2ea935188314b7ff"
-  };
-  // Initialize Firebase
-  firebase.initializeApp(firebaseConfig);
+// var firebaseConfig = {
+//     apiKey: "AIzaSyCi2FqKo_Pwcj7Z_ImIJ4Rlwy89QRwjOL8",
+//     authDomain: "project1-18df4.firebaseapp.com",
+//     databaseURL: "https://project1-18df4.firebaseio.com",
+//     projectId: "project1-18df4",
+//     storageBucket: "project1-18df4.appspot.com",
+//     messagingSenderId: "178823515374",
+//     appId: "1:178823515374:web:91f4ee2ea935188314b7ff"
+//   };
+//   // Initialize Firebase
+//   firebase.initializeApp(firebaseConfig);
 
   var APIKey = "wHs10WlfqBFYqXmTvluWeO53DeEFgVLZfGUvCELS"
   
