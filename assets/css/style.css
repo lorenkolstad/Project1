@@ -1,5 +1,5 @@
 body {
-    background-image: url("/assets/images/Lassen.jpg");
+    background-image: url("../images/Lassen.jpg");
     background-size: cover, auto, auto;
     background-position: auto;
     background-repeat: no-repeat;

@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
     <title>Document</title>
 </head>
 <body>
@@ -52,31 +52,14 @@
                 <div class="col s4">
                     <div class="card">
                         <div class="card-image">
-                            <img src="/assets/images/Havasupai-Falls-Arizona.jpg">
-                            <span class="card-title">Card Title</span>
+                            <img src="./assets/images/sample-1.jpg">
+                            <span class="card-title" id=
+                            "card1title">Card Title</span>
                         </div>
 
-                        <div class="card-content">
-                            <p>I am a very simple card. I am good at containing small bits of information.
-                            I am convenient because I require little markup to use effectively.</p>
-                        </div>
-
-                        <div class="card-action">
-                            <a href="#">This is a link</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col s4">
-                    <div class="card">
-                        <div class="card-image">
-                            <img src="/assets/images/sample-1.jpg">
-                            <span class="card-title">Card Title</span>
-                        </div>
-
-                        <div class="card-content">
-                            <p>I am a very simple card. I am good at containing small bits of information.
-                                I am convenient because I require little markup to use effectively.</p>
+                        <div class="card-content" id="card1content">
+                             <p>I am a very simple card. I am good at containing small bits of information.
+                              I am convenient because I require little markup to use effectively.</p>
                         </div>
 
                         <div class="card-action">
@@ -88,7 +71,22 @@
                 <div class="col s4">
                     <div class="card">
                         <div class="card-image">
-                            <img src="/assets/images/sample2.jpg">
+                            <img src="./assets/images/sample2.jpg">
+                            <span class="card-title" id="card2title"></span>
+                        </div>
+
+                        <div class="card-content" id="card2content"></div>
+
+                        <div class="card-action">
+                            <a href="#">This is a link</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col s4">
+                    <div class="card">
+                        <div class="card-image">
+                            <img src="./assets/images/Havasupai-Falls-Arizona.jpg">
                             <span class="card-title">Card Title</span>
                         </div>
 
@@ -106,9 +104,7 @@
             </div>
 
         </div>
-              
-        
-        
+
         <footer class="page-footer" id="page-footer">
             
             <div class="container" id="footer-container">
@@ -120,5 +116,13 @@
 
 <!-- Compiled and minified JavaScript -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-database.js"></script>
+<script
+  src="https://code.jquery.com/jquery-3.4.1.js"
+  integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+  crossorigin="anonymous"></script>
+<script src="./assets/javascript/javascript.js"></script>
+
 </body>
 </html>
