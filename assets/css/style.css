@@ -13,6 +13,9 @@ body {
 nav {
     background-color: #37412E;
     height: 60px;
+    top: 0;
+    width: 100%;
+    transition: top 0.3s;
 }
 
 #nav-logo {
@@ -25,7 +28,8 @@ nav {
     margin: 5px;
 }
 
-#main-bio {
+#main-bio, #contact-box
+ {
     padding-left: 15px;
     background-color: #37412EB3;
     text-emphasis: bolder;
@@ -48,4 +52,5 @@ nav {
 
 #page-footer {
     background-color: #37412E;
+    bottom: 0;
 }
