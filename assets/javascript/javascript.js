@@ -1,4 +1,4 @@
-
+M.toast({html: 'I am a toast!', classes: 'rounded'})
 
 var firebaseConfig = {
     apiKey: "AIzaSyCi2FqKo_Pwcj7Z_ImIJ4Rlwy89QRwjOL8",
