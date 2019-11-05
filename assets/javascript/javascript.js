@@ -1,36 +1,23 @@
-M.toast({html: 'I am a toast!', classes: 'rounded'})
 
-// var firebaseConfig = {
-//     apiKey: "AIzaSyCi2FqKo_Pwcj7Z_ImIJ4Rlwy89QRwjOL8",
-//     authDomain: "project1-18df4.firebaseapp.com",
-//     databaseURL: "https://project1-18df4.firebaseio.com",
-//     projectId: "project1-18df4",
-//     storageBucket: "project1-18df4.appspot.com",
-//     messagingSenderId: "178823515374",
-//     appId: "1:178823515374:web:91f4ee2ea935188314b7ff"
-//   };
-//   // Initialize Firebase
-//   firebase.initializeApp(firebaseConfig);
-
-  var APIKey = "wHs10WlfqBFYqXmTvluWeO53DeEFgVLZfGUvCELS"
-  
-//   var searchVariable = ""
-  var queryURL = "https://developer.nps.gov/api/v1/parks?&api_key=" + APIKey
+// API Key from National Park Service API (https://www.nps.gov/subjects/developer/api-documentation.htm)
+var APIKey = "wHs10WlfqBFYqXmTvluWeO53DeEFgVLZfGUvCELS"
+ 
+  // URL Variable
+var queryURL = "https://developer.nps.gov/api/v1/parks?&api_key=" + APIKey
+var queryUrl
 
   $(document).ready(function() {
-
     $.ajax({
         url: queryURL,
         method: "GET"
-    })
+    }).then(function(response) {
 
-    .then(function(response) {
-        // console.log(queryURL);
+      // console.log resposne form National Park Service API
         console.log(response);
         console.log(response.data[22].fullName);
         console.log(response.data[22].description);
         
-            
+        // pre-selected parks for dynamically built cards
         var apiTitle1 = response.data[22].fullName;
         var apiContent1 = response.data[22].description;
         var apiTitle2 = response.data[42].fullName;
@@ -39,11 +26,7 @@ M.toast({html: 'I am a toast!', classes: 'rounded'})
         var apiContent3 = response.data[26].description;
 
 
-        // $("#card2title").text(cardTitle);
-        // $("#card2content").text(response.data[22].description);
-
-        // var card1 = `<div class= "card" id="card1">`
-
+        // building card - 1
         var card1Col = $("<div>").attr("class", "col s4");
         var card1 = $("<div>").attr("class","card");
         var spanTitle1 = $("<span>").attr("id","card-1-title");
@@ -58,6 +41,7 @@ M.toast({html: 'I am a toast!', classes: 'rounded'})
         card1Col.append(card1);
         $("#card-row").append(card1Col);
 
+        // building card - 2
         var card2Col = $("<div>").attr("class", "col s4");
         var card2 = $("<div>").attr("class","card");
         var spanTitle2 = $("<span>").attr("id","card-2-title");
@@ -72,6 +56,7 @@ M.toast({html: 'I am a toast!', classes: 'rounded'})
         card2Col.append(card2);
         $("#card-row").append(card2Col);
 
+        // building card - 3
         var card3Col = $("<div>").attr("class", "col s4");
         var card3 = $("<div>").attr("class","card");
         var spanTitle3 = $("<span>").attr("id","card-3-title");
@@ -85,31 +70,57 @@ M.toast({html: 'I am a toast!', classes: 'rounded'})
         card3.append(cardContent3);
         card3Col.append(card3);
         $("#card-row").append(card3Col);
-
-        
-
-
-
-        
-
-        // var card1image = `<img src= ${response.data[22].images.url}`
-    
-        // $(".col s4").append(card1);
-        // $(card1image).append(card1);
-    
-    
-    
-    
     });
-
-
         // var element = `<img src= ${giphys[i].images.fixed_height.url} data-still= ${giphys[i].images.fixed_height_still.url} data-animate= ${giphys[i].images.fixed_height.url} data-state= "animate" class= "gifs">`
+  })  
+
+  // weather api toast
+  M.toast({html: 'I am a toast!', classes: 'rounded'})
 
 
-    // $("#card1").empty();
+var firebaseConfig = {
+    apiKey: "AIzaSyCi2FqKo_Pwcj7Z_ImIJ4Rlwy89QRwjOL8",
+    authDomain: "project1-18df4.firebaseapp.com",
+    databaseURL: "https://project1-18df4.firebaseio.com",
+    projectId: "project1-18df4",
+    storageBucket: "project1-18df4.appspot.com",
+    messagingSenderId: "178823515374",
+    appId: "1:178823515374:web:91f4ee2ea935188314b7ff"
+  };
+  
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+
+  var database = firebase.database();
+
+  var firstName = "";
+  var lastName = "";
+  var email = "";
+  var message = "";
+
+  $("#submit").on("click", function(event){
+    event.preventDefault();
+
+    firstName = $("#first_name").val().trim();
+    lastName = $("#last_name").val().trim();
+    email = $("#email").val().trim();
+    message = $("#textarea").val().trim();
+
+    database.ref().push({
+      firstName: firstName,
+      lastName: lastName,
+      email: email,
+      message: message,
+      dateAdded: firebase.database.ServerValue.TIMESTAMP,
+    });
+  });
+
+  database.ref().orderByChild("dateAdded").on("child_added", function(childSnapshot){
+    console.log(childSnapshot.val());
+    console.log(childSnapshot.val().firstName);
+    console.log(childSnapshot.val().lastName);
+    console.log(childSnapshot.val().email);
+    console.log(childSnapshot.val().message);
   })
-  
-  
-
 
 

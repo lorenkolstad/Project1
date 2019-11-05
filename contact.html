@@ -1,48 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-    <!-- Bootstrap -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     
-    <!-- Materialized -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    <link rel="stylesheet" href="assets/css/style.css">
+  <!-- Materialized -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <link rel="stylesheet" href="./assets/css/style.css">
     
-    <title>National Park Geek</title>
+  <title>National Park Geek</title>
 </head>
 <body>
-    <nav>
-        <div class="nav-wrapper" id="nav-div">
-            <img src="./assets/images/npgeek.png" id="logo">
-            <a href="index.html" class="brand-logo" id="title">National Park Geek</a>
-            
-            <ul id="nav-mobile" class="right hide-on-med-and-down">
-                <li id="nav-item"><a href="search.html">Plan Your Trip</a></li>
-                <li id="nav-item"><a href="#">Contact Us</a></li>
-            </ul>
-            <ul class="sidenav" id="mobile-demo">
-                    <li><a href="sass.html">Sass</a></li>
-                    <li><a href="badges.html">Components</a></li>
-                    <li><a href="collapsible.html">Javascript</a></li>
-                    <li><a href="mobile.html">Mobile</a></li>
-            </ul>
+  <nav id="nav-bar">
+    <div class="nav-wrapper" id="nav-div">
+      <img src="./assets/images/npgeek.png" id="logo">
+      <a href="index.html" class="brand-logo" id="title">National Park Geek</a>
+
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li id="nav-item"><a class="waves-effect waves-light btn" href="search.html">Plan Your Trip</a></li>
+        <li id="nav-item"><a class="waves-effect waves-light btn" href="contact.html">Contact</a></li>    
+      </ul>
+    </div>
+  </nav>
+
+  <br>
+
+  <div class="container" id="contact-box">
+    <form class="col s12">
+      <div class="row">
+        <div class="input-field col s6">
+          <input id="first_name" type="text" class="validate">
+          <label for="first_name">First Name</label>
         </div>
-    </nav>
 
-        <br>
+        <div class="input-field col s6">
+          <input id="last_name" type="text" class="validate">
+          <label for="last_name">Last Name</label>
+        </div>
+      </div>
 
-        <footer class="page-footer" id="page-footer">
-            
-            <div class="container" id="footer-container">
-                © 2019 National Park Geek
-                <!-- <a class="grey-text text-lighten-4 right" href="#!">More Links</a> -->
-            </div>
-                
-        </footer>
+      <div class="row">
+        <div class="input-field col s12">
+            <input id="email" type="email" class="validate">
+            <label for="email_inline">Email</label>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="input-field col s12">
+          <input id="textarea" class="materialize-textarea"/>
+          <label for="textarea">Leave your message here</label>
+        </div>
+      </div>
+      <a class="waves-effect waves-light btn" id="submit">Submit</a>
+    </form>
+  </div>
+
+  <br>
+
+  <footer class="page-footer" id="page-footer">
+    <div class="container" id="footer-container">
+      © 2019 National Park Geek
+    </div>
+  </footer>
 
 <!-- Bootstrap jQuery -->
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
@@ -52,9 +76,10 @@
 <!-- Materialized jQuery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<!-- Fiirebase -->
 <script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-app.js"></script>
 <script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-database.js"></script>
+
 <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
 
 <script src="./assets/javascript/javascript.js"></script>
