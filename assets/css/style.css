@@ -12,6 +12,10 @@ body {
     font-size: 16px;
 }
 
+#card-container, #contact-box {
+    flex: 1 0 auto;
+}
+
 nav {
     background-color: #37412E;
     height: 65px;
@@ -95,4 +99,10 @@ nav {
 
 .card-title {
     width: 100%
+}
+#title{
+    text-decoration: none;
+}
+a.brand-logo:hover {
+    color: #CF865D;
 }

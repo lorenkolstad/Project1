@@ -1,10 +1,9 @@
 
 // API Key from National Park Service API (https://www.nps.gov/subjects/developer/api-documentation.htm)
 var APIKey = "wHs10WlfqBFYqXmTvluWeO53DeEFgVLZfGUvCELS"
- 
+
   // URL Variable
 var queryURL = "https://developer.nps.gov/api/v1/parks?&api_key=" + APIKey
-var queryUrl
 
   $(document).ready(function() {
     $.ajax({
@@ -97,11 +96,7 @@ var queryUrl
         $("#card-row").append(card3Col);
     });
         // var element = `<img src= ${giphys[i].images.fixed_height.url} data-still= ${giphys[i].images.fixed_height_still.url} data-animate= ${giphys[i].images.fixed_height.url} data-state= "animate" class= "gifs">`
-  })  
-
-  // weather api toast
-  M.toast({html: 'I am a toast!', classes: 'rounded'})
-
+  });
 
 var firebaseConfig = {
     apiKey: "AIzaSyCi2FqKo_Pwcj7Z_ImIJ4Rlwy89QRwjOL8",
@@ -129,7 +124,7 @@ var firebaseConfig = {
     firstName = $("#first_name").val().trim();
     lastName = $("#last_name").val().trim();
     email = $("#email").val().trim();
-    message = $("#textarea").val().trim();
+    message = $("#input").val().trim();
 
     database.ref().push({
       firstName: firstName,
@@ -141,7 +136,6 @@ var firebaseConfig = {
   });
 
   database.ref().orderByChild("dateAdded").on("child_added", function(childSnapshot){
-    console.log(childSnapshot.val());
     console.log(childSnapshot.val().firstName);
     console.log(childSnapshot.val().lastName);
     console.log(childSnapshot.val().email);
@@ -189,3 +183,33 @@ var firebaseConfig = {
   });
 
   };
+  $("#card").on("click",function(){
+    console.log("you got clicked");
+  })
+
+// API Key from Accuweather API (https://developer.accuweather.com/)
+
+// var weatherAPIKey = "a441b767e75a3e228f7eed9d35168238"
+var weatherAPIKey = "166a433c57516f51dfab1f7edaed8413"
+var search = "";
+
+  // weather api toast
+  M.toast({html: 'I am a toast!', classes: 'rounded'})
+
+  // URL Variable
+  var weatherQuery = "http://api.openweathermap.org/data/2.5/forecast?id=524901&APPID=" + weatherAPIKey;
+
+$(document).ready(function(){
+  $.ajax({
+    url: weatherQuery,
+    method: "GET"
+  }).then(function(weatherResponse){
+    console.log(weatherResponse)
+
+    weatherResponse.main.temp_min
+    weatherResponse.main.temp_max
+    weatherResponse.main.humidity
+    weatherResponse.wind.speed
+
+  })
+})
