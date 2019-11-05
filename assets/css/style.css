@@ -74,7 +74,7 @@ nav {
 }
 
 .card-title {
-    background-color: #c56c39;
+    /* background-color: #c56c39; */
     text-align: center;
     color: #EBF5EE;
     padding: 10px, 5px, 10px, 5px;
@@ -97,6 +97,9 @@ nav {
     bottom: 0;
 }
 
+.card-title {
+    width: 100%
+}
 #title{
     text-decoration: none;
 }
