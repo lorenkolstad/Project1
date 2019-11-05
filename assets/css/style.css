@@ -106,3 +106,8 @@ nav {
 a.brand-logo:hover {
     color: #CF865D;
 }
+#featured-parks {
+    background-color: #37412EB3;
+    text-align: center;
+    color: #EBF5EE;
+}
