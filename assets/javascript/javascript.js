@@ -123,4 +123,7 @@ var firebaseConfig = {
     console.log(childSnapshot.val().message);
   })
 
+  $("#card").on("click",function(){
+    console.log("you got clicked");
+  })
 
