@@ -21,7 +21,6 @@
             <a href="index.html" class="brand-logo" id="title">National Park Geek</a>
                     
             <ul id="nav-mobile" class="right hide-on-med-and-down">
-                <li id="nav-item"><a class="waves-effect waves-light btn" href="search.html">Plan Your Trip</a></li>
                 <li id="nav-item"><a class="waves-effect waves-light btn" href="contact.html">Contact</a></li>
             </ul>
         </div>
@@ -31,24 +30,61 @@
 
     <div class="container" id="main-bio">
         <div class="row">
-            <div class="col s10 offset-s1">
-                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Exercitationem laboriosam natus pariatur quos sunt hic tempora nesciunt tenetur libero. Corporis harum voluptates ipsa. Enim explicabo quam dolor molestiae laborum ex.</p>
-
-                <P>Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse quaerat non placeat, numquam dignissimos aspernatur et porro eum, perspiciatis, rem molestiae excepturi earum. Dolor consectetur cumque culpa, omnis magni labore.</P>
-
-                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Asperiores quasi ex quas deserunt, est deleniti sint facere! Quisquam quidem quibusdam nisi? Perspiciatis labore magni mollitia quod rem, eaque quis esse!</p>
-
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. At, quos fuga! Amet reiciendis laudantium, aspernatur sequi, aperiam incidunt eos ipsum ipsa doloribus, pariatur ipsam. Eaque exercitationem nihil est hic quisquam?</p>
+            <div class="col s12">
+                <form class="col s12">
+                    <div class="row">
+                      <div class="input-field col s12">
+                        <textarea id="textarea1" class="materialize-textarea"></textarea>
+                        <label for="textarea1">Search Parks (City, State)</label>
+                      </div>
+                    </div>
+                    <a class="waves-effect waves-light btn" id="submit-index">Submit</a>
+                </form>
             </div>
         </div>
     </div>
 
     <br>
 
-    <div class="container">
+    <div class="container" id="card-container">
         <div class="row" id="card-row">
         </div>
     </div>
+
+    <!-- adding in the html for modals -->
+
+    <!-- modal-1 -->
+    <div id="modal1" class="modal modal-fixed-footer">
+        <div class="modal-content">
+          <h4>Modal Header</h4>
+          <p>A bunch of text</p>
+        </div>
+        <div class="modal-footer">
+          <a href="#!" class="modal-close waves-effect waves-light btn-flat">Agree</a>
+        </div>
+      </div>
+
+      <!-- modal-2 -->
+      <div id="modal2" class="modal modal-fixed-footer">
+        <div class="modal-content">
+          <h4>Modal Header</h4>
+          <p>A bunch of text</p>
+        </div>
+        <div class="modal-footer">
+          <a href="#!" class="modal-close waves-effect waves-light btn-flat">Agree</a>
+        </div>
+      </div>
+
+      <!-- modal-3 -->
+      <div id="modal3" class="modal modal-fixed-footer">
+        <div class="modal-content">
+          <h4>Modal Header</h4>
+          <p>A bunch of text</p>
+        </div>
+        <div class="modal-footer">
+          <a href="#!" class="modal-close waves-effect waves-light btn-flat">Agree</a>
+        </div>
+      </div>
 
     <footer class="page-footer" id="page-footer">
         <div class="container" id="footer-container">
