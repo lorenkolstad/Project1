@@ -1,4 +1,5 @@
 body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-image: url("../images/Lassen.jpg");
     background-size: cover, auto, auto;
     background-position: auto;
@@ -13,7 +14,7 @@ body {
 
 nav {
     background-color: #37412E;
-    height: 60px;
+    height: 65px;
     top: 0;
     width: 100%;
     transition: top 0.3s;
@@ -23,14 +24,23 @@ nav {
     text-align: center;
 }
 
+.btn {
+    background-color: #c56c39;
+    color: #EBF5EE;
+}
+
+.btn:hover {
+    background-color: #CF865D;
+    color: #EBF5EE;
+}
+
 #logo {
     height: 50px;
     width: 50px;
     margin: 5px;
 }
 
-#main-bio, #contact-box
- {
+#main-bio, #contact-box {
     padding-left: 15px;
     background-color: #37412EB3;
     text-emphasis: bolder;
@@ -42,10 +52,37 @@ nav {
     align-self: stretch;
 }
 
-.card {
-    box-shadow: 0 5px 15px rgba(0,0,0,.5);
+.container {
+    padding: 0px;
 }
 
+.col.s4 {
+    margin: 5px;
+    padding: 0px;
+}
+
+.card {
+    background-color: #37412EB3;
+    color: #EBF5EE;
+    box-shadow: 0 5px 15px rgba(0,0,0,.5);
+    margin: 0px;
+    padding: 0px;
+}
+
+.card-title {
+    background-color: #c56c39;
+    text-align: center;
+    color: #EBF5EE;
+    padding: 10px, 5px, 10px, 5px;
+}
+
+#card-1-content, #card-2-content, #card-3-content {
+    padding: 10px;
+}
+
+.input-field {
+    color: #EBF5EE;
+}
 
 #footer-container {
     padding-bottom: 20px;
