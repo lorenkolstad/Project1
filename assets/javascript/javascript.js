@@ -187,29 +187,29 @@ var firebaseConfig = {
     console.log("you got clicked");
   })
 
+
 // API Key from Accuweather API (https://developer.accuweather.com/)
 
-// var weatherAPIKey = "a441b767e75a3e228f7eed9d35168238"
-var weatherAPIKey = "166a433c57516f51dfab1f7edaed8413"
-var search = "";
+  // var weatherAPIKey = "a441b767e75a3e228f7eed9d35168238"
+  var weatherAPIKey = "166a433c57516f51dfab1f7edaed8413"
+  var search = "";
 
-  // weather api toast
-  M.toast({html: 'I am a toast!', classes: 'rounded'})
+    // URL Variable
+    var weatherQuery = "http://api.openweathermap.org/data/2.5/forecast?id=524901&APPID=" + weatherAPIKey;
 
-  // URL Variable
-  var weatherQuery = "http://api.openweathermap.org/data/2.5/forecast?id=524901&APPID=" + weatherAPIKey;
+  $(document).ready(function(){
+    $.ajax({
+      url: weatherQuery,
+      method: "GET"
+    }).then(function(weatherResponse){
+      console.log(weatherResponse)
 
-$(document).ready(function(){
-  $.ajax({
-    url: weatherQuery,
-    method: "GET"
-  }).then(function(weatherResponse){
-    console.log(weatherResponse)
+      weatherResponse.main.temp_min
+      weatherResponse.main.temp_max
+      weatherResponse.main.humidity
+      weatherResponse.wind.speed
 
-    weatherResponse.main.temp_min
-    weatherResponse.main.temp_max
-    weatherResponse.main.humidity
-    weatherResponse.wind.speed
-
+    })
   })
-})
+
+    M.toast({html: 'Leave us a message!'}).window.location.href="index.html"
