@@ -70,7 +70,7 @@ nav {
 }
 
 .card-title {
-    background-color: #c56c39;
+    /* background-color: #c56c39; */
     text-align: center;
     color: #EBF5EE;
     padding: 10px, 5px, 10px, 5px;
@@ -91,4 +91,8 @@ nav {
 #page-footer {
     background-color: #37412E;
     bottom: 0;
+}
+
+.card-title {
+    width: 100%
 }
