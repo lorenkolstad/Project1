@@ -11,6 +11,10 @@ body {
     font-size: 16px;
 }
 
+#card-container {
+    flex: 1 0 auto;
+}
+
 nav {
     background-color: #37412E;
     height: 60px;
@@ -53,5 +57,4 @@ nav {
 
 #page-footer {
     background-color: #37412E;
-    bottom: 0;
 }
