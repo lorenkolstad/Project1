@@ -1,5 +1,5 @@
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: "Montserrat", "Open San", "Roboto";
     background-image: url("../images/Lassen.jpg");
     background-size: cover, auto, auto;
     background-position: auto;
@@ -31,6 +31,7 @@ nav {
 .btn {
     background-color: #c56c39;
     color: #EBF5EE;
+    box-shadow: 0 5px 15px rgba(0,0,0,.5);
 }
 
 .btn:hover {
@@ -106,3 +107,32 @@ nav {
 a.brand-logo:hover {
     color: #CF865D;
 }
+#featured-parks {
+    background-color: #37412EB3;
+    text-align: center;
+    color: #EBF5EE;
+    box-shadow: 0 5px 15px rgba(0,0,0,.5);
+}
+
+.input-field label {
+    color: #EBF5EE;
+}
+
+/* not working? */
+.input-field input[type=text]:focus + label {
+    color: #EBF5EE;
+}
+.input-field input[type=text]:focus {
+    border-bottom: 1px solid #CF865D;
+    box-shadow: 0 1px 00 #CF865D;
+}
+
+/* this code changes the color of the text input fields test after you hit submit */
+.input-field input[type=text].valid {
+    border-bottom: 1px solid #CF865D;
+    box-shadow: 0 1px 0 0 #CF865D;
+  }
+  .input-field input[type=email].valid {
+    border-bottom: 1px solid #CF865D;
+    box-shadow: 0 1px 0 0 #CF865D;
+  }
