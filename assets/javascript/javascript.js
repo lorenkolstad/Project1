@@ -190,8 +190,8 @@ var firebaseConfig = {
 
 // API Key from Accuweather API (https://developer.accuweather.com/)
 
-  // var weatherAPIKey = "a441b767e75a3e228f7eed9d35168238"
-  var weatherAPIKey = "166a433c57516f51dfab1f7edaed8413"
+  var weatherAPIKey = "9706dfde676c0293e7bd02603325526c"
+  // var weatherAPIKey = "166a433c57516f51dfab1f7edaed8413"
   var search = "";
 
     // URL Variable
@@ -212,4 +212,4 @@ var firebaseConfig = {
     })
   })
 
-    M.toast({html: 'Leave us a message!'}).window.location.href="index.html"
+    M.toast({html: 'Leave us a message!'}).window
