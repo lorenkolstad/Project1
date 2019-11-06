@@ -6,6 +6,7 @@ var APIKey = "wHs10WlfqBFYqXmTvluWeO53DeEFgVLZfGUvCELS"
 var queryURL = "https://developer.nps.gov/api/v1/parks?&api_key=" + APIKey
 
   $(document).ready(function() {
+
     $.ajax({
         url: queryURL,
         method: "GET"
@@ -29,8 +30,6 @@ var queryURL = "https://developer.nps.gov/api/v1/parks?&api_key=" + APIKey
         var apiContent3 = response.data[26].description;
         var stateCode3 = response.data[26].states;
         var parkCode3 = response.data[26].parkCode;
-
-
 
         // building card - 1
         var card1Col = $("<div>").attr("class", "col s4");
@@ -95,9 +94,81 @@ var queryURL = "https://developer.nps.gov/api/v1/parks?&api_key=" + APIKey
         card3Col.append(card3);
         $("#card-row").append(card3Col);
     });
-        // var element = `<img src= ${giphys[i].images.fixed_height.url} data-still= ${giphys[i].images.fixed_height_still.url} data-animate= ${giphys[i].images.fixed_height.url} data-state= "animate" class= "gifs">`
   });
 
+// creating search results for national park api
+  $("#submit-index").on("click", function(){
+
+    // on search feature, logging input search value
+    searchNationalPark = $("#input").val().trim()
+    console.log(searchNationalPark)
+    search(searchNationalPark);
+  })
+
+  //search function that acutally searches the National Park Service API
+  function search(searchNationalPark){
+    var queryURLSearch = "https://developer.nps.gov/api/v1/parks?q=" + searchNationalPark + "&api_key=" + APIKey + "&fields=images";
+    console.log (queryURLSearch);
+
+    $.ajax({
+      url: queryURLSearch,
+      method: "GET"
+    }).then(function(searchResponse) {
+      console.log(searchResponse)
+
+      // creating loop to grab information to dynamically build searched park card
+      for (var i = 0; i < searchResponse.data.length; i++) {
+        var idImg = ""
+        var parkCode= searchResponse.data[i].id;
+        var stateCode = searchResponse.data[i].states;
+        var apiTitle = searchResponse.data[i].fullName;
+        var apiContent = searchResponse.data[i].description;
+
+        console.log(idImg, "*****", stateCode, "*****", parkCode, "*****", apiTitle, "*****" ,apiContent);
+
+        // creating Bootstrap carousel component
+          var images = searchResponse.data[i].images
+          var carousel = $("<div>").attr("class", "carousel slide")
+          carousel.attr("data-ride", "carousel")
+          var carouselInner = $("<div>").attr("class", "carousel-inner")
+          carousel.append(carouselInner)
+          var image = `<div class="carousel-item active"><img src=${images[0].url} class="d-block w-100"></div>`
+          carouselInner.append(image);
+
+          for (var j =1; j < images.length; j++) {
+            console.log(images[j].url)
+
+            var image = `<div class="carousel-item"><img src=${images[j].url} class="d-block w-100"></div>`
+            carouselInner.append(image);
+          }
+
+
+          // building searched park cards
+          var cardCol = $("<div>").attr("id", "searched-parks");
+          var card = $("<div>").attr("class","card");
+          var cardImage = $("<img>").attr("src", "https://www.nps.gov/common/uploads/structured_data/" + idImg + ".jpg")
+          cardImage.attr("class", "card-title");
+          cardImage.attr("id", "c3");
+          cardImage.attr("data-state", stateCode);
+          cardImage.attr("data-park", parkCode);
+          var spanTitle = $("<span>").attr("id","card-3-title");
+          spanTitle.attr("class","card-title");
+          var cardContent = $("<div>").attr("class", "card-content");
+          cardContent.attr("id", "card-3-content");
+          spanTitle.text(apiTitle);
+          cardContent.text(apiContent);
+  
+          card.append(carousel);
+          card.append(spanTitle);
+          card.append(cardContent);
+          cardCol.append(card);
+          $("#card-row").prepend(cardCol);
+        $('.carousel').carousel()
+      }
+    });
+  }
+
+// Firebase 
 var firebaseConfig = {
     apiKey: "AIzaSyCi2FqKo_Pwcj7Z_ImIJ4Rlwy89QRwjOL8",
     authDomain: "project1-18df4.firebaseapp.com",
@@ -141,6 +212,26 @@ var firebaseConfig = {
     console.log(childSnapshot.val().email);
     console.log(childSnapshot.val().message);
   })
+      // full list of items to the well
+      //   $("#comments").append("<div class='well'><span class='member-name'> " +
+      //     childSnapshot.val().name +
+      //     " </span><span class='member-email'> " + childSnapshot.val().email +
+      //     " </span><span class='member-age'> " + childSnapshot.val().age +
+      //     " </span><span class='member-comment'> " + childSnapshot.val().comment +
+      //     " </span></div>");
+
+      //   // Handle the errors
+      // }, function(errorObject) {
+      //   console.log("Errors handled: " + errorObject.code);
+      // });
+
+      // dataRef.ref().orderByChild("dateAdded").limitToLast(1).on("child_added", function(snapshot) {
+      //   // Change the HTML to reflect
+      //   $("#name-display").text(snapshot.val().name);
+      //   $("#email-display").text(snapshot.val().email);
+      //   $("#age-display").text(snapshot.val().age);
+      //   $("#comment-display").text(snapshot.val().comment);
+      // });
 
   $(document).on("click", "#c1", function (event) {
     console.log(event.target);
@@ -169,7 +260,6 @@ var firebaseConfig = {
     modalQuery(state, park);
   })
 
-
   function modalQuery(state, park) {
     var modalURL = "https://developer.nps.gov/api/v1/parks?parkCode=" + park + "&stateCode=" + state + "&api_key=" + APIKey
 
@@ -177,25 +267,22 @@ var firebaseConfig = {
     $.ajax({
       url: modalURL,
       method: "GET"
-
-  }).then(function(response) {
+    }).then(function(response) {
       console.log(response);
-  });
-
+    });
   };
+
   $("#card").on("click",function(){
     console.log("you got clicked");
   })
 
+// API Key from OpenWeatherMap API (https://openweathermap.com/)
 
-// API Key from Accuweather API (https://developer.accuweather.com/)
+  var weatherAPIKey = "a441b767e75a3e228f7eed9d35168238"
+  var selectedNationalParkZipCode = "";
 
-  var weatherAPIKey = "9706dfde676c0293e7bd02603325526c"
-  // var weatherAPIKey = "166a433c57516f51dfab1f7edaed8413"
-  var search = "";
-
-    // URL Variable
-    var weatherQuery = "http://api.openweathermap.org/data/2.5/forecast?id=524901&APPID=" + weatherAPIKey;
+  // URL Variable
+  var weatherQuery = "https://api.openweathermap.org/data/2.5/weather?q=London,uk&APPID=" + weatherAPIKey;
 
   $(document).ready(function(){
     $.ajax({
@@ -208,7 +295,6 @@ var firebaseConfig = {
       weatherResponse.main.temp_max
       weatherResponse.main.humidity
       weatherResponse.wind.speed
-
     })
   })
 
