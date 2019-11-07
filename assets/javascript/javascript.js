@@ -210,6 +210,12 @@ var firebaseConfig = {
       message: message,
       dateAdded: firebase.database.ServerValue.TIMESTAMP,
     });
+
+    $("#member-name").text(firstName + " " + lastName);
+    // $("#member-lastName").text(lastName);
+    $("#member-email").text(email);
+    $("#member-comment").text(message);
+
   });
 
   database.ref().orderByChild("dateAdded").on("child_added", function(childSnapshot){
