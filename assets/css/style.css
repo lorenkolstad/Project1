@@ -120,7 +120,7 @@ a.brand-logo:hover {
 
 /* not working? */
 .input-field input[type=text]:focus + label {
-    color: #EBF5EE;
+    
 }
 .input-field input[type=text]:focus {
     border-bottom: 1px solid #CF865D;
@@ -132,7 +132,11 @@ a.brand-logo:hover {
     border-bottom: 1px solid #CF865D;
     box-shadow: 0 1px 0 0 #CF865D;
   }
-  .input-field input[type=email].valid {
+.input-field input[type=email].valid {
     border-bottom: 1px solid #CF865D;
     box-shadow: 0 1px 0 0 #CF865D;
+  }
+
+  #member-name, #member-email, #member-comment {
+      text-align: center;
   }

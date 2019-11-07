@@ -204,6 +204,12 @@ var firebaseConfig = {
       message: message,
       dateAdded: firebase.database.ServerValue.TIMESTAMP,
     });
+
+    $("#member-name").text(firstName + " " + lastName);
+    // $("#member-lastName").text(lastName);
+    $("#member-email").text(email);
+    $("#member-comment").text(message);
+
   });
 
   database.ref().orderByChild("dateAdded").on("child_added", function(childSnapshot){
@@ -299,3 +305,23 @@ var firebaseConfig = {
   })
 
     M.toast({html: 'Leave us a message!'}).window
+
+    $(document).ready(function() {
+      (function($) {
+        $(function() {
+          //initialize modals//
+          $(".modal").modal();
+  
+          $(".triger-modal").modal();
+  
+        });
+      })(jQuery);
+    })
+    
+    //capturing the contact submit button click//
+    $("submit").on("click", function(event) {
+
+      //capture the user inputs//
+      var name = $()
+
+    })
