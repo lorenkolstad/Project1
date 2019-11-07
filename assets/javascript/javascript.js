@@ -101,8 +101,10 @@ var queryURL = "https://developer.nps.gov/api/v1/parks?&api_key=" + APIKey
 
     // on search feature, logging input search value
     searchNationalPark = $("#input").val().trim()
+    searchWeather = $("#input").val().trim()
     console.log(searchNationalPark)
     search(searchNationalPark);
+    weather(searchWeather);
   })
 
   //search function that acutally searches the National Park Service API
@@ -123,13 +125,15 @@ var queryURL = "https://developer.nps.gov/api/v1/parks?&api_key=" + APIKey
         var stateCode = searchResponse.data[i].states;
         var apiTitle = searchResponse.data[i].fullName;
         var apiContent = searchResponse.data[i].description;
-
-        console.log(idImg, "*****", stateCode, "*****", parkCode, "*****", apiTitle, "*****" ,apiContent);
+        var latLong = searchResponse.data[i].latLong;
+          console.log(latLong)
+          console.log(idImg, "*****", stateCode, "*****", parkCode, "*****", apiTitle, "*****" ,apiContent);
 
         // creating Bootstrap carousel component
           var images = searchResponse.data[i].images
           var carousel = $("<div>").attr("class", "carousel slide")
           carousel.attr("data-ride", "carousel")
+          carousel.attr("data-interval", "false")
           var carouselInner = $("<div>").attr("class", "carousel-inner")
           carousel.append(carouselInner)
           var image = `<div class="carousel-item active"><img src=${images[0].url} class="d-block w-100"></div>`
@@ -142,10 +146,10 @@ var queryURL = "https://developer.nps.gov/api/v1/parks?&api_key=" + APIKey
             carouselInner.append(image);
           }
 
-
           // building searched park cards
           var cardCol = $("<div>").attr("id", "searched-parks");
           var card = $("<div>").attr("class","card");
+          var cardImage = $("<div>").attr("class", "image");
           var cardImage = $("<img>").attr("src", "https://www.nps.gov/common/uploads/structured_data/" + idImg + ".jpg")
           cardImage.attr("class", "card-title");
           cardImage.attr("id", "c3");
@@ -155,15 +159,17 @@ var queryURL = "https://developer.nps.gov/api/v1/parks?&api_key=" + APIKey
           spanTitle.attr("class","card-title");
           var cardContent = $("<div>").attr("class", "card-content");
           cardContent.attr("id", "card-3-content");
+          // var weather = $("<a class='waves-effect waves-light btn'>Get Weather</a>");
+          // weather.attr("id", "weather");
           spanTitle.text(apiTitle);
           cardContent.text(apiContent);
-  
+          
           card.append(carousel);
           card.append(spanTitle);
           card.append(cardContent);
+          // card.append(weather);
           cardCol.append(card);
-          $("#card-row").prepend(cardCol);
-        $('.carousel').carousel()
+          $("#searched-parks").prepend(cardCol);
       }
     });
   }
@@ -211,27 +217,9 @@ var firebaseConfig = {
     console.log(childSnapshot.val().lastName);
     console.log(childSnapshot.val().email);
     console.log(childSnapshot.val().message);
+
+    $("#comments").append("<div class='card'>")
   })
-      // full list of items to the well
-      //   $("#comments").append("<div class='well'><span class='member-name'> " +
-      //     childSnapshot.val().name +
-      //     " </span><span class='member-email'> " + childSnapshot.val().email +
-      //     " </span><span class='member-age'> " + childSnapshot.val().age +
-      //     " </span><span class='member-comment'> " + childSnapshot.val().comment +
-      //     " </span></div>");
-
-      //   // Handle the errors
-      // }, function(errorObject) {
-      //   console.log("Errors handled: " + errorObject.code);
-      // });
-
-      // dataRef.ref().orderByChild("dateAdded").limitToLast(1).on("child_added", function(snapshot) {
-      //   // Change the HTML to reflect
-      //   $("#name-display").text(snapshot.val().name);
-      //   $("#email-display").text(snapshot.val().email);
-      //   $("#age-display").text(snapshot.val().age);
-      //   $("#comment-display").text(snapshot.val().comment);
-      // });
 
   $(document).on("click", "#c1", function (event) {
     console.log(event.target);
@@ -277,25 +265,47 @@ var firebaseConfig = {
   })
 
 // API Key from OpenWeatherMap API (https://openweathermap.com/)
-
   var weatherAPIKey = "a441b767e75a3e228f7eed9d35168238"
-  var selectedNationalParkZipCode = "";
 
-  // URL Variable
-  var weatherQuery = "https://api.openweathermap.org/data/2.5/weather?q=London,uk&APPID=" + weatherAPIKey;
+  // search function for wather
+  function weather(searchWeather){
+    var city = $("#input").val().trim()
+    console.log(city)
+    var weatherQuery = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&APPID=" + weatherAPIKey;
+    console.log (weatherQuery);
 
-  $(document).ready(function(){
     $.ajax({
       url: weatherQuery,
       method: "GET"
     }).then(function(weatherResponse){
       console.log(weatherResponse)
 
-      weatherResponse.main.temp_min
-      weatherResponse.main.temp_max
-      weatherResponse.main.humidity
-      weatherResponse.wind.speed
-    })
-  })
+      var tempMin = weatherResponse.main.temp_min
+      var tempMax = weatherResponse.main.temp_max
+      var humidity = weatherResponse.main.humidity
+      var windSpeed = weatherResponse.wind.speed
+      var currentConditions = weatherResponse.weather[0].description
 
-    M.toast({html: 'Leave us a message!'}).window
+      var convertedTempMin = ((tempMin - 273.15)*9)/5 + 32;
+      var convertedTempMax = ((tempMax - 273.15)*9)/5 + 32;
+      var windSpeed = windSpeed * 2.236
+      
+      console.log(currentConditions)
+      console.log("Humidity: " + humidity + "%")
+      console.log("Temp Low: " + convertedTempMin + "F")
+      console.log("Temp High: " + convertedTempMax + "F")
+      console.log("Wind Speed: " + windSpeed + "mph")
+
+      var weatherCol = $("<div>").attr("class", "col s12")
+      var weatherCard = $("<div>").attr("class", "card")
+      var weatherTempMin = $("<p>").attr(tempMin)
+      var weatherTempMax = $("<p>").attr(tempMax)
+
+      weatherCard.append(weatherTempMin)
+      weatherCard.append(weatherTempMax)
+      weatherCol.append(weatherCard)
+      $("#card-row").append(weatherCol)
+    })
+  }
+
+  M.toast({html: 'Leave us a message!'}).window
