@@ -265,14 +265,16 @@ function weather(weatherCityName) {
 
 function tabs(){
   $(".search-weather").hide()
-  $("#parks-search").hide()
   $("#searched-weather").hide()
+  $("#weather-search").hide()
 
   $("#btn-search").on("click", function(){
     $(".search-parks").show()
     $(".searched-parks").show()
     $("#featured-parks").show()
+    $("#parks-search").show()
 
+    $("#weather-search").hide()
     $(".search-weather").hide()
     $(".searched-weather").hide()
     console.log("hi")
@@ -281,10 +283,12 @@ function tabs(){
   $("#btn-weather").on("click", function(){
     $(".search-weather").show()
     $("#searched-weather").show()
+    $("#weather-search").show()
 
     $(".search-parks").hide()
     $(".searched-parks").hide()
     $("#featured-parks").hide()
+    $("#parks-search").hide()
     console.log("hello")
   })
 }
