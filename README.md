@@ -12,7 +12,7 @@ We wanted to make a website that was easy to use for the average park enthusiast
 
 We decided to use the libraries for Materialize and jQuery. We also included google fonts because our group preferred the Montserrat font.
 
-HTML
+HTML:
 
 <!-- <!DOCTYPE html>
 <html lang="en">
@@ -20,38 +20,17 @@ HTML
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-	scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-
-    <!-- Bootstrap -->
     
-    <!-- google-fonts -->
+    google-fonts
     <link href="https://fonts.googleapis.com/css?family=Montserrat|Open+Sans|Roboto&display=swap" rel="stylesheet">
 
-    <!-- Materialized -->
+    Materialized
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
   
     <link rel="stylesheet" href="./assets/css/style.css">
   
     <title>National Park Geek</title>
-</head>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-	scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-
-    <!-- Bootstrap -->
-    
-    <!-- google-fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Montserrat|Open+Sans|Roboto&display=swap" rel="stylesheet">
-
-    <!-- Materialized -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-  
-    <link rel="stylesheet" href="./assets/css/style.css">
-  
-    <title>National Park Geek</title>
-</head> -->
+	</head>
 
 Included APIs
 This page will help you get started with National Park Service API - Parks.

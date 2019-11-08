@@ -36,7 +36,6 @@ a.brand-logo:hover {
     text-align: center;
 }
 
-
 .btn {
     background-color: #c56c39;
     color: #EBF5EE;
@@ -158,14 +157,4 @@ input.valid:not([type=email]):focus {
 #page-footer {
     background-color: #37412E;
     bottom: 0;
-}
-
-#member-name, #member-email, #member-comment {
-    text-align: center;
-}
-
-#search-parks, #search-weather {
-    width: 100%;
-    height: 40px;
-    padding: 0;
 }
