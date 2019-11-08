@@ -5,103 +5,121 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-    <!-- Bootstrap -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    
-    <!-- google-fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Montserrat|Open+Sans|Roboto&display=swap" rel="stylesheet">
-
-    <!-- Materialized -->
+    <!-- Materialized: Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    
+    <!-- Google Fonts: Monsterrat -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat|Open+Sans|Roboto&display=swap" rel="stylesheet">
+    
+    <!-- Project CSS -->
     <link rel="stylesheet" href="./assets/css/style.css">
-    <title>National Park Geek</title>
+
+    <title>National Park Geeks</title>
 </head>
+
 <body>
-  <nav id="nav-bar">
-    <div class="nav-wrapper" id="nav-div">
-
-      <!-- logo is sourced from "https://nationalparkgeek.com/" -->
-      <img src="./assets/images/npgeek.png" id="logo">
-      <a href="index.html" class="brand-logo" id="title">National Park Geek</a>
-
-      <ul id="nav-mobile" class="right hide-on-med-and-down">
-        <li id="nav-item"><a class="waves-effect waves-light btn" href="contact.html">Contact</a></li>
-          <!-- Modal Trigger -->
-        <!-- <a class="waves-effect waves-light btn dropdown-trigger" data-target="dropdown"><img src="./assets/images/local-weather.png"></a> -->
-      </ul>
-    </div>
-  </nav>
-
-  <div class="container" id="main-bio">
-    <div class="row">
-      <div class="col s6">
-        <a class="waves-effect waves-light btn" id="search-parks">National Parks</a>
-      </div>
-      <div class="col s6">  
-        <a class="waves-effect waves-light btn" id="search-weather">Local Weather</a>
-      </div>  
-    </div>
-    <div class="row">
-    <div class="col s12">
-        <form class="col s12">
-          <div class="row">
-            <div class="input-field col s12">
-              <input id="input" type="text" class="validate">
-              <label for="input_inline">Search Parks (Example: Arches National Park)</label>
+    <header>
+        <!-- Navigation -->
+        <nav>
+            <div class="nav-wrapper">
+                <img src="./assets/images/npgeek.png" id="npg-logo">
+                <a href="./index.html" class="brand-logo">National Park Geek</a>
+                <ul class="right hide-on-med-and-down">
+                    <li><a class="waves-effect waves-light btn" href="./contact.html">Contact Us</a></li>
+                </ul>
             </div>
-          </div>
-          <a class="waves-effect waves-light btn" id="submit-index">Submit</a>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Search Form with Tabs -->
+        <form id="form-1-parks">
+            <div class="tabs">
+                <a class="waves-effect waves-light btn parks" id="btn-search">Search Parks</a>
+                <a class="waves-effect waves-light btn weather" id="btn-weather">Local Weather</a>
+            </div>
+
+            <div class="search-parks">
+                <div class="input-field col s12">
+                    <input id="input-park" type="text" class="validate">
+                    <label for="input_inline">Search Parks (Example: Arches National Park)</label>
+                </div>
+            </div>
+            <a class="waves-effect waves-light btn" id="parks-search">Search</a>
+
+            <div class="search-weather">
+                <div class="input-field col s12">
+                    <input id="input-weather" type="text" class="validate">
+                    <label for="input_inline">Find Current Weather In Your Location (Example: Sacramento)</label>
+                </div>
+            </div>
+            <a class="waves-effect waves-light btn" id="weather-search">Search</a>
         </form>
-      </div>
-    </div>
-  </div>
 
-  <div class="container">
-    <div id="searched-parks">
-      <div class="row" id="parks-searched">
-        <div class="col s12">
-
+        <div class="searched-parks" id="user-selected-parks">
+            <h4 class="header">Searched Parks</h4>
+            <p>Search for your favorite parks above!</p>
+            <div class="show-searched-parks" id="searched-parks">
+                <div class="row" id="card-show-row">
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-  </div>
 
+        <div class="featured-parks" id="featured-parks">
+            <h4 class="header">Featured Parks</h4>
+            <p>Plan your next trip to one of our featured National Parks!</p>
+            <div class="show-featured-parks" id="show-parks">
+                <div class="row" id="card-row">
+                </div>
+            </div>
+        </div>
 
-  <div class="container" id="featured-parks-container">
-    <div class="row" id="featured-parks">
-      <div class="col s12">
-        <h4 id="featured-parks-header">Featured Parks</h4>
-      </div>
-    </div>
-  </div>
+        <div class="searched-weather" id="searched-weather">
+            <h4 class="header">Weather</h4>
+            <p>Find the Current Conditions for your area!</p>
+            <div class="show-weather" id="show-current">
+                <div class="row" id="card-weather-row">
+                </div>
+            </div>
+        </div>
+    </main>
 
+    <!-- Footer -->
+    <footer class="page-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col l6 s12">
+                    <h5 class="white-text">Thank you for visiting our site!</h5>
+                    <p class="grey-text text-lighten-4">Please remember to leave us a message on our contact page!</p>
+                </div>
+                <div class="col l4 offset-l2 s12">
+                    <h5 class="white-text">Social Media</h5>
+                    <ul>
+                        <li><a class="grey-text text-lighten-3" href="./contact.html">Contact Us</a></li>
+                        <li><a class="grey-text text-lighten-3" href="https://www.facebook.com/nationalparkservice">Facebook</a></li>
+                        <li><a class="grey-text text-lighten-3" href="https://www.instagram.com/nationalparkservice/?hl=en">Instagram</a></li>
+                        <li><a class="grey-text text-lighten-3" href="https://www.linkedin.com/company/national-park-service">LinkedIn</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-copyright">
+            <div class="container">© 2019 Copyright 'National Park Geek Project'</div>
+        </div>
+    </footer>
 
-  <div class="container" id="card-container">
-    <div class="row" id="card-row">
+    <!-- jQuery CDN -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 
-    </div>
-  </div>
+    <!-- Materialized: Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 
-  <footer class="page-footer" id="page-footer">
-    <div class="container" id="footer-container">
-      © 2019 National Park Geek
-    </div>
-  </footer>
+    <!-- Fiirebase -->
+    <script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-database.js"></script>
 
-  <!-- Materialized jQuery -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <!-- Project Javascript -->
+    <script src="./assets/javascript/javascript.js"></script>
 
-  <!-- Bootstrap jQuery -->
-  <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-
-  <!-- Fiirebase -->
-  <script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-database.js"></script>
-
-  <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
-
-  <script src="./assets/javascript/javascript.js"></script>
 </body>
 </html>

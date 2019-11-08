@@ -1,105 +1,112 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-  <!-- Bootstrap -->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- Materialized: Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     
-  <!-- google fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Montserrat|Open+Sans|Roboto&display=swap" rel="stylesheet">
-  
-  <!-- Materialized -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-  <link rel="stylesheet" href="./assets/css/style.css">
+    <!-- Google Fonts: Monsterrat -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat|Open+Sans|Roboto&display=swap" rel="stylesheet">
     
-  <title>National Park Geek</title>
+    <!-- Project CSS -->
+    <link rel="stylesheet" href="./assets/css/style.css">
+
+    <title>National Park Geeks</title>
 </head>
+
 <body>
-  <nav id="nav-bar">
-    <div class="nav-wrapper" id="nav-div">
-      <img src="./assets/images/npgeek.png" id="logo">
-      <a href="index.html" class="brand-logo" id="title">National Park Geek</a>
+    <header>
+        <!-- Navigation -->
+        <nav>
+            <div class="nav-wrapper">
+                <img src="./assets/images/npgeek.png" id="npg-logo">
+                <a href="./index.html" class="brand-logo">National Park Geek</a>
+                <ul class="right hide-on-med-and-down">
+                    <li><a class="waves-effect waves-light btn" href="./index.html">Home</a></li>
+                    <li><a class="waves-effect waves-light btn" href="./contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
 
-      <ul id="nav-mobile" class="right hide-on-med-and-down">
-        <li id="nav-item"><a class="waves-effect waves-light btn" href="index.html">Home</a></li>
-        <li id="nav-item"><a class="waves-effect waves-light btn" href="contact.html">Contact</a></li>    
-      </ul>
-    </div>
-  </nav>
+    <main>
+        <!-- Search Form with Tabs -->
+        <form class="col s12">
+            <div class="row">
+                <div class="input-field col s6">
+                    <input id="first_name" type="text" class="validate">
+                    <label for="first_name">First Name</label>
+                </div>
 
-  <br>
+                <div class="input-field col s6">
+                    <input id="last_name" type="text" class="validate">
+                    <label for="last_name">Last Name</label>
+                </div>
+            </div>
 
-  <div class="container" id="contact-box">
-    <form class="col s12">
-      <div class="row">
-        <div class="input-field col s6">
-          <input id="first_name" type="text" class="validate">
-          <label for="first_name">First Name</label>
+            <div class="row">
+                <div class="input-field col s12">
+                    <input id="email" type="email" class="validate">
+                    <label for="email_inline">Email</label>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="input-field col s12">
+                    <input id="input" type="text" class="validate">
+                    <label for="input_inline">Please Leave A Message</label>
+                </div>
+            </div>
+            <a class="waves-effect waves-light btn" id="submit">Submit</a>
+        </form>
+        <div class="new-member" id="member-info">
+            <h4 class="header">New Member Sign-Up</h4>
+            <div class="show-member-info">
+                <h6 id="member-name"></h6>
+                <h6 id="member-email"></h6>
+                <p id="member-comment"></p>
+            </div>
         </div>
+    </main>
 
-        <div class="input-field col s6">
-          <input id="last_name" type="text" class="validate">
-          <label for="last_name">Last Name</label>
+    <!-- Footer -->
+    <footer class="page-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col l6 s12">
+                    <h5 class="white-text">Thank you for visiting our site!</h5>
+                </div>
+                <div class="col l4 offset-l2 s12">
+                    <h5 class="white-text">Social Media</h5>
+                    <ul>
+                        <li><a class="grey-text text-lighten-3" href="./contact.html">Contact Us</a></li>
+                        <li><a class="grey-text text-lighten-3" href="https://www.facebook.com/nationalparkservice">Facebook</a></li>
+                        <li><a class="grey-text text-lighten-3" href="https://www.instagram.com/nationalparkservice/?hl=en">Instagram</a></li>
+                        <li><a class="grey-text text-lighten-3" href="https://www.linkedin.com/company/national-park-service">LinkedIn</a></li>
+                    </ul>
+                </div>
+            </div>
         </div>
-      </div>
-
-      <div class="row">
-        <div class="input-field col s12">
-            <input id="email" type="email" class="validate">
-            <label for="email_inline">Email</label>
+        <div class="footer-copyright">
+            <div class="container">© 2019 Copyright 'National Park Geek Project'</div>
         </div>
-      </div>
+    </footer>
 
-      <div class="row">
-          <div class="input-field col s12">
-              <input id="input" type="text" class="validate">
-              <label for="input_inline">Please Leave A Message</label>
-          </div>
-        </div>
-      <a class="waves-effect waves-light btn" id="submit">Submit</a>
-    </form>
-  </div>
+    <!-- jQuery CDN -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 
-  <div class="container">
-    <div class="row">
-      <div class="col s12">
-        <div class="card">
-          <div class="card-content" id="new-member-info">
-            <span class="card-title" id="new-member-title">New Member Sign-Up</span>
-              <h6 id="member-name"></h6>
-              <h6 id="member-email"></h6>
-              <p id="member-comment"></p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+    <!-- Materialized: Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 
-  <br>
+    <!-- Fiirebase -->
+    <script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-database.js"></script>
 
-  <footer class="page-footer" id="page-footer">
-    <div class="container" id="footer-container">
-      © 2019 National Park Geek
-    </div>
-  </footer>
+    <!-- Project Javascript -->
+    <script src="./assets/javascript/javascript.js"></script>
 
-<!-- Bootstrap jQuery -->
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-
-<!-- Materialized jQuery -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-
-<!-- Fiirebase -->
-<script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-database.js"></script>
-
-<script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
-
-<script src="./assets/javascript/javascript.js"></script>
 </body>
 </html>
