@@ -17,120 +17,83 @@
     <title>National Park Geek</title>
 </head>
 <body>
-    <nav id="nav-bar">
-        <div class="nav-wrapper" id="nav-div">
-            <img src="./assets/images/npgeek.png" id="logo">
-            <!-- logo is sourced from "https://nationalparkgeek.com/" -->
-            <a href="index.html" class="brand-logo" id="title">National Park Geek</a>
-                    
-            <ul id="nav-mobile" class="right hide-on-med-and-down">
-                <li id="nav-item"><a class="waves-effect waves-light btn" href="contact.html">Contact</a></li>
-            </ul>
-        </div>
-    </nav>
+  <nav id="nav-bar">
+    <div class="nav-wrapper" id="nav-div">
 
-    <br>
+      <!-- logo is sourced from "https://nationalparkgeek.com/" -->
+      <img src="./assets/images/npgeek.png" id="logo">
+      <a href="index.html" class="brand-logo" id="title">National Park Geek</a>
 
-    <div class="container" id="main-bio">
-        <div class="row">
-            <div class="col s12">
-                <form class="col s12">
-                    <div class="row">
-                      <div class="input-field col s12">
-                        <input id="input" type="text" class="validate">
-                        <label for="input_inline">Search Parks (Example: Arches National Park)</label>
-                      </div>
-                    </div>
-                    <a class="waves-effect waves-light btn" id="submit-index">Search</a>
-                </form>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li id="nav-item"><a class="waves-effect waves-light btn" href="contact.html">Contact</a></li>
+          <!-- Modal Trigger -->
+        <!-- <a class="waves-effect waves-light btn dropdown-trigger" data-target="dropdown"><img src="./assets/images/local-weather.png"></a> -->
+      </ul>
+    </div>
+  </nav>
+
+  <div class="container" id="main-bio">
+    <div class="row">
+      <div class="col s12">
+        <form class="col s12">
+          <div class="row">
+            <div class="input-field col s12">
+              <input id="input" type="text" class="validate">
+              <label for="input_inline">Search Parks (Example: Arches National Park)</label>
             </div>
-        </div>
-    </div>
-
-    <br>
-    
-    <div class="container">
-      <div id="searched-parks">
-        <div class="row" id="parks-searched">
-          <div class="col s12">
           </div>
-        </div>
+          <a class="waves-effect waves-light btn" id="submit-index">Submit</a>
+        </form>
       </div>
     </div>
+  </div>
 
-    <br>
-
-    <div class="container" id="featured-parks-container">
-      <div class="row" id="featured-parks">
+  <div class="container">
+    <div id="searched-parks">
+      <div class="row" id="parks-searched">
         <div class="col s12">
-          <h4 id="featured-parks-header">Featured Parks</h4>
+
         </div>
       </div>
     </div>
+  </div>
 
-    <br>
 
-    <div class="container" id="card-container">
-        <div class="row" id="card-row">
-        </div>
+  <div class="container" id="featured-parks-container">
+    <div class="row" id="featured-parks">
+      <div class="col s12">
+        <h4 id="featured-parks-header">Featured Parks</h4>
+      </div>
     </div>
-
-    <!-- adding in the html for modals --> 
-
-    <!-- modal-1 -->
-    <div id="modal1" class="modal modal-fixed-footer">
-        <div class="modal-content">
-          <h4>Modal Header</h4>
-          <p>A bunch of text</p>
-        </div>
-        <div class="modal-footer">
-          <a href="#modal1" class="modal-close waves-effect waves-light btn-flat">Agree</a>
-        </div>
-      </div>
-
-      <!-- modal-2 -->
-      <div id="modal2" class="modal modal-fixed-footer">
-        <div class="modal-content">
-          <h4>Modal Header</h4>
-          <p>A bunch of text</p>
-        </div>
-        <div class="modal-footer">
-          <a href="#modal2" class="modal-close waves-effect waves-light btn-flat">Agree</a>
-        </div>
-      </div>
-
-      <!-- modal-3 -->
-      <div id="modal3" class="modal modal-fixed-footer">
-        <div class="modal-content">
-          <h4>Modal Header</h4>
-          <p>A bunch of text</p>
-        </div>
-        <div class="modal-footer">
-          <a href="#modal3" class="modal-close waves-effect waves-light btn-flat">Agree</a>
-        </div>
-      </div>
-
-    <footer class="page-footer" id="page-footer">
-        <div class="container" id="footer-container">
-            © 2019 National Park Geek
-        </div>
-    </footer>
+  </div>
 
 
-<!-- Materialized jQuery -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <div class="container" id="card-container">
+    <div class="row" id="card-row">
 
-<!-- Bootstrap jQuery -->
-<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    </div>
+  </div>
 
-<!-- Fiirebase -->
-<script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-database.js"></script>
+  <footer class="page-footer" id="page-footer">
+    <div class="container" id="footer-container">
+      © 2019 National Park Geek
+    </div>
+  </footer>
 
-<script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+  <!-- Materialized jQuery -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 
-<script src="./assets/javascript/javascript.js"></script>
+  <!-- Bootstrap jQuery -->
+  <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+  <!-- Fiirebase -->
+  <script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-database.js"></script>
+
+  <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+
+  <script src="./assets/javascript/javascript.js"></script>
 </body>
 </html>

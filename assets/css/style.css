@@ -24,8 +24,20 @@ nav {
     transition: top 0.3s;
 }
 
+#title{
+    text-decoration: none;
+}
+
+a.brand-logo:hover {
+    color: #CF865D;
+}
+
 #nav-logo {
     text-align: center;
+}
+img {
+    height: 35px;
+    width: 35px;
 }
 
 .btn {
@@ -58,11 +70,19 @@ nav {
 }
 
 .container {
+    margin-top: 20px;
     padding: 0px;
 }
 
+#featured-parks {
+    padding: 0px;
+}
 .col.s4 {
     margin: 5px;
+    padding: 0px;
+}
+
+.col.s12 {
     padding: 0px;
 }
 
@@ -70,12 +90,10 @@ nav {
     background-color: #37412EB3;
     color: #EBF5EE;
     box-shadow: 0 5px 15px rgba(0,0,0,.5);
-    margin: 0px;
     padding: 0px;
 }
 
-.card-title {
-    /* background-color: #c56c39; */
+#card-1-title, #card-2-title, #card-3-title {
     text-align: center;
     color: #EBF5EE;
     padding: 10px, 5px, 10px, 5px;
@@ -89,6 +107,53 @@ nav {
     color: #EBF5EE;
 }
 
+.card-title {
+    width: 100%;
+    text-align: center;
+    padding: 5px;
+}
+
+#content {
+    padding: 10px;
+    text-align: justify;
+}
+
+.card-weather {
+    padding: 10px;
+    text-align: justify;
+}
+
+#featured-parks {
+    background-color: #37412EB3;
+    text-align: center;
+    color: #EBF5EE;
+    box-shadow: 0 5px 15px rgba(0,0,0,.5);
+}
+
+.valid, .validate {
+    color: #EBF5EE;
+}
+
+.input-field input[type=text].valid {
+    border-bottom: 1px solid #CF865D;
+    box-shadow: 0 1px 0 0 #CF865D;
+}
+
+.input-field input[type=email].valid {
+    border-bottom: 1px solid #CF865D;
+    box-shadow: 0 1px 0 0 #CF865D;
+}
+
+input.valid:not([type=text]):focus {
+    border-bottom: 1px solid #CF865D;
+    box-shadow: 0 1px 0 0 #CF865D;
+}
+
+input.valid:not([type=email]):focus {
+    border-bottom: 1px solid #CF865D;
+    box-shadow: 0 1px 0 0 #CF865D;
+}
+
 #footer-container {
     padding-bottom: 20px;
 }
@@ -97,46 +162,3 @@ nav {
     background-color: #37412E;
     bottom: 0;
 }
-
-.card-title {
-    width: 100%
-}
-#title{
-    text-decoration: none;
-}
-a.brand-logo:hover {
-    color: #CF865D;
-}
-#featured-parks {
-    background-color: #37412EB3;
-    text-align: center;
-    color: #EBF5EE;
-    box-shadow: 0 5px 15px rgba(0,0,0,.5);
-}
-
-.input-field label {
-    color: #EBF5EE;
-}
-
-/* not working? */
-.input-field input[type=text]:focus + label {
-    
-}
-.input-field input[type=text]:focus {
-    border-bottom: 1px solid #CF865D;
-    box-shadow: 0 1px 00 #CF865D;
-}
-
-/* this code changes the color of the text input fields test after you hit submit */
-.input-field input[type=text].valid {
-    border-bottom: 1px solid #CF865D;
-    box-shadow: 0 1px 0 0 #CF865D;
-  }
-.input-field input[type=email].valid {
-    border-bottom: 1px solid #CF865D;
-    box-shadow: 0 1px 0 0 #CF865D;
-  }
-
-  #member-name, #member-email, #member-comment {
-      text-align: center;
-  }
