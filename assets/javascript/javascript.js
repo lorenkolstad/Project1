@@ -154,18 +154,18 @@ var queryURL = "https://developer.nps.gov/api/v1/parks?&api_key=" + APIKey
           spanTitle.attr("class", "btn tooltipped card-title");
           spanTitle.attr("data-position", "left");
           spanTitle.attr("data-tooltip", "Click here to visit the website!");
-          var weather = $("<div>").attr("class", "card-weather");
-          weather.attr("id", "weather")
+          var directions = $("<div>").attr("class", "card-directions");
+          directions.attr("id", "weather")
           var cardContent = $("<div>").attr("class", "card-content");
           cardContent.attr("id", "content");
           spanTitle.text(apiTitle);
           cardContent.text(apiContent);
-          weather.text(directionsInfo);
+          directions.text(directionsInfo);
   
           card.append(carousel);
           card.append(spanTitle);
           card.append(cardContent);
-          card.append(weather);
+          card.append(directions);
           cardCol.append(card);
           $("#searched-parks").prepend(cardCol);
       }
