@@ -166,3 +166,9 @@ input.valid:not([type=email]):focus {
 #member-name, #member-email, #member-comment {
     text-align: center;
 }
+
+#search-parks, #search-weather {
+    width: 100%;
+    height: 40px;
+    padding: 0;
+}
