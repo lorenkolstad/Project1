@@ -162,3 +162,7 @@ input.valid:not([type=email]):focus {
     background-color: #37412E;
     bottom: 0;
 }
+
+#member-name, #member-email, #member-comment {
+    text-align: center;
+}
