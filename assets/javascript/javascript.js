@@ -6,6 +6,8 @@ var queryURL = "https://developer.nps.gov/api/v1/parks?&api_key=" + APIKey
 
   $(document).ready(function() {
 
+    
+
     $.ajax({
         url: queryURL,
         method: "GET"
@@ -142,12 +144,14 @@ var queryURL = "https://developer.nps.gov/api/v1/parks?&api_key=" + APIKey
           var cardCol = $("<div>").attr("id", "searched-parks");
           var card = $("<div>").attr("class","card");
           var cardImage = $("<img>").attr("src", "https://www.nps.gov/common/uploads/structured_data/" + parkCode + ".jpg")
+          // var instance = M.Tooltip.getInstance(elem);
           cardImage.attr("class", "card-title");
           cardImage.attr("id", "card");
           cardImage.attr("data-state", stateCode);
           cardImage.attr("data-park", parkCode);
           var spanTitle = $("<span>").attr("id","card-title");
           spanTitle.attr("class","card-title");
+<<<<<<< HEAD
 
 
           "<a class="waves-effect waves-light btn dropdown-trigger" data-target="dropdown"><img src="./assets/images/local-weather.png"></a>"
@@ -155,22 +159,29 @@ var queryURL = "https://developer.nps.gov/api/v1/parks?&api_key=" + APIKey
 
           var weather = $("<div>").attr("", "card-weather");
           weather.attr("id", "weather")
+=======
+          spanTitle.attr("class", "btn tooltipped card-title");
+          spanTitle.attr("data-position", "left");
+          spanTitle.attr("data-tooltip", "Click here to visit the website!");
+          var directions = $("<div>").attr("class", "card-directions");
+          directions.attr("id", "weather")
+>>>>>>> 8137c76febf8e087deee5959f05d92848633d889
           var cardContent = $("<div>").attr("class", "card-content");
           cardContent.attr("id", "content");
           spanTitle.text(apiTitle);
           cardContent.text(apiContent);
-          weather.text(directionsInfo);
+          directions.text(directionsInfo);
   
           card.append(carousel);
           card.append(spanTitle);
           card.append(cardContent);
-          card.append(weather);
+          card.append(directions);
           cardCol.append(card);
           $("#searched-parks").prepend(cardCol);
       }
+      $('.tooltipped').tooltip();
     });
   }
-
 // Firebase 
 var firebaseConfig = {
     apiKey: "AIzaSyCi2FqKo_Pwcj7Z_ImIJ4Rlwy89QRwjOL8",
