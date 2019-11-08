@@ -279,3 +279,13 @@ var firebaseConfig = {
   })
 
   M.toast({html: 'Leave us a message!'}).window
+
+  // trying out the side-nav//
+
+  $(document).ready(function(){
+    
+    $('.sidenav').sidenav();
+  });
+
+
+
