@@ -119,7 +119,9 @@ var queryURL = "https://developer.nps.gov/api/v1/parks?&api_key=" + APIKey
         var stateCode = searchResponse.data[i].states;
         var apiTitle = searchResponse.data[i].fullName;
         var apiContent = searchResponse.data[i].description;
-        var weatherInfo = searchResponse.data[i].weatherInfo;
+        // var weatherInfo = searchResponse.data[i].weatherInfo;
+        //swapped out weather for driving directions from NPS API
+        var directionsInfo = searchResponse.data[i].directionsInfo;
 
         // creating Bootstrap carousel component
           var images = searchResponse.data[i].images
@@ -152,7 +154,7 @@ var queryURL = "https://developer.nps.gov/api/v1/parks?&api_key=" + APIKey
           cardContent.attr("id", "content");
           spanTitle.text(apiTitle);
           cardContent.text(apiContent);
-          weather.text(weatherInfo);
+          weather.text(directionsInfo);
   
           card.append(carousel);
           card.append(spanTitle);
