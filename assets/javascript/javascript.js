@@ -119,7 +119,9 @@ var queryURL = "https://developer.nps.gov/api/v1/parks?&api_key=" + APIKey
         var stateCode = searchResponse.data[i].states;
         var apiTitle = searchResponse.data[i].fullName;
         var apiContent = searchResponse.data[i].description;
-        var weatherInfo = searchResponse.data[i].weatherInfo;
+        // var weatherInfo = searchResponse.data[i].weatherInfo;
+        //swapped out weather for driving directions from NPS API
+        var directionsInfo = searchResponse.data[i].directionsInfo;
 
         // creating Bootstrap carousel component
           var images = searchResponse.data[i].images
@@ -146,13 +148,18 @@ var queryURL = "https://developer.nps.gov/api/v1/parks?&api_key=" + APIKey
           cardImage.attr("data-park", parkCode);
           var spanTitle = $("<span>").attr("id","card-title");
           spanTitle.attr("class","card-title");
-          var weather = $("<div>").attr("class", "card-weather");
+
+
+          "<a class="waves-effect waves-light btn dropdown-trigger" data-target="dropdown"><img src="./assets/images/local-weather.png"></a>"
+
+
+          var weather = $("<div>").attr("", "card-weather");
           weather.attr("id", "weather")
           var cardContent = $("<div>").attr("class", "card-content");
           cardContent.attr("id", "content");
           spanTitle.text(apiTitle);
           cardContent.text(apiContent);
-          weather.text(weatherInfo);
+          weather.text(directionsInfo);
   
           card.append(carousel);
           card.append(spanTitle);
