@@ -1,4 +1,3 @@
-
 // API Key from National Park Service API (https://www.nps.gov/subjects/developer/api-documentation.htm)
 var APIKey = "wHs10WlfqBFYqXmTvluWeO53DeEFgVLZfGUvCELS"
 
@@ -40,7 +39,6 @@ var queryURL = "https://developer.nps.gov/api/v1/parks?&api_key=" + APIKey
         card1Image.attr("data-state", stateCode1);
         card1Image.attr("data-park", parkCode1);
         var spanTitle1 = $("<span>").attr("id","card-1-title");
-        spanTitle1.attr("class","card-title");
         var cardContent1 = $("<div>").attr("class", "card-content");
         cardContent1.attr("id", "card-1-content");
         spanTitle1.text(apiTitle1);
@@ -61,7 +59,6 @@ var queryURL = "https://developer.nps.gov/api/v1/parks?&api_key=" + APIKey
         card2Image.attr("data-state", stateCode2);
         card2Image.attr("data-park", parkCode2);
         var spanTitle2 = $("<span>").attr("id","card-2-title");
-        spanTitle2.attr("class","card-title");
         var cardContent2 = $("<div>").attr("class", "card-content");
         cardContent2.attr("id", "card-2-content");
         spanTitle2.text(apiTitle2);
@@ -82,7 +79,6 @@ var queryURL = "https://developer.nps.gov/api/v1/parks?&api_key=" + APIKey
         card3Image.attr("data-state", stateCode3);
         card3Image.attr("data-park", parkCode3);
         var spanTitle3 = $("<span>").attr("id","card-3-title");
-        spanTitle3.attr("class","card-title");
         var cardContent3 = $("<div>").attr("class", "card-content");
         cardContent3.attr("id", "card-3-content");
         spanTitle3.text(apiTitle3);
@@ -101,10 +97,8 @@ var queryURL = "https://developer.nps.gov/api/v1/parks?&api_key=" + APIKey
 
     // on search feature, logging input search value
     searchNationalPark = $("#input").val().trim()
-    searchWeather = $("#input").val().trim()
     console.log(searchNationalPark)
     search(searchNationalPark);
-    weather(searchWeather);
   })
 
   //search function that acutally searches the National Park Service API
@@ -125,23 +119,19 @@ var queryURL = "https://developer.nps.gov/api/v1/parks?&api_key=" + APIKey
         var stateCode = searchResponse.data[i].states;
         var apiTitle = searchResponse.data[i].fullName;
         var apiContent = searchResponse.data[i].description;
-        var latLong = searchResponse.data[i].latLong;
-          console.log(latLong)
-          console.log(idImg, "*****", stateCode, "*****", parkCode, "*****", apiTitle, "*****" ,apiContent);
+        var weatherInfo = searchResponse.data[i].weatherInfo;
 
         // creating Bootstrap carousel component
           var images = searchResponse.data[i].images
           var carousel = $("<div>").attr("class", "carousel slide")
           carousel.attr("data-ride", "carousel")
-          carousel.attr("data-interval", "false")
           var carouselInner = $("<div>").attr("class", "carousel-inner")
           carousel.append(carouselInner)
-          var image = `<div class="carousel-item active"><img src=${images[0].url} class="d-block w-100"></div>`
+          var image = `<div class="item active"><img src=${images[0].url} class="d-block w-100"></div>`
           carouselInner.append(image);
 
           for (var j =1; j < images.length; j++) {
             console.log(images[j].url)
-
             var image = `<div class="carousel-item"><img src=${images[j].url} class="d-block w-100"></div>`
             carouselInner.append(image);
           }
@@ -149,25 +139,25 @@ var queryURL = "https://developer.nps.gov/api/v1/parks?&api_key=" + APIKey
           // building searched park cards
           var cardCol = $("<div>").attr("id", "searched-parks");
           var card = $("<div>").attr("class","card");
-          var cardImage = $("<div>").attr("class", "image");
-          var cardImage = $("<img>").attr("src", "https://www.nps.gov/common/uploads/structured_data/" + idImg + ".jpg")
+          var cardImage = $("<img>").attr("src", "https://www.nps.gov/common/uploads/structured_data/" + parkCode + ".jpg")
           cardImage.attr("class", "card-title");
-          cardImage.attr("id", "c3");
+          cardImage.attr("id", "card");
           cardImage.attr("data-state", stateCode);
           cardImage.attr("data-park", parkCode);
-          var spanTitle = $("<span>").attr("id","card-3-title");
+          var spanTitle = $("<span>").attr("id","card-title");
           spanTitle.attr("class","card-title");
+          var weather = $("<div>").attr("class", "card-weather");
+          weather.attr("id", "weather")
           var cardContent = $("<div>").attr("class", "card-content");
-          cardContent.attr("id", "card-3-content");
-          // var weather = $("<a class='waves-effect waves-light btn'>Get Weather</a>");
-          // weather.attr("id", "weather");
+          cardContent.attr("id", "content");
           spanTitle.text(apiTitle);
           cardContent.text(apiContent);
-          
+          weather.text(weatherInfo);
+  
           card.append(carousel);
           card.append(spanTitle);
           card.append(cardContent);
-          // card.append(weather);
+          card.append(weather);
           cardCol.append(card);
           $("#searched-parks").prepend(cardCol);
       }
@@ -212,10 +202,8 @@ var firebaseConfig = {
     });
 
     $("#member-name").text(firstName + " " + lastName);
-    // $("#member-lastName").text(lastName);
     $("#member-email").text(email);
     $("#member-comment").text(message);
-
   });
 
   database.ref().orderByChild("dateAdded").on("child_added", function(childSnapshot){
@@ -227,91 +215,49 @@ var firebaseConfig = {
     $("#comments").append("<div class='card'>")
   })
 
-  $(document).on("click", "#c1", function (event) {
-    console.log(event.target);
-    var state = $(event.target).data("state");
-    var park = $(event.target).data("park");
-    console.log(state);
-    console.log(park);
-    modalQuery(state, park);
-  })
+  // function modalQuery(state, park) {
+  //   var modalURL = "https://developer.nps.gov/api/v1/parks?parkCode=" + park + "&stateCode=" + state + "&api_key=" + APIKey
 
-  $(document).on("click", "#c2", function (event) {
-    console.log(event.target);
-    var state = $(event.target).data("state");
-    var park = $(event.target).data("park");
-    console.log(state);
-    console.log(park);
-    modalQuery(state, park);
-  })
+  //   console.log(modalURL);
+  //   $.ajax({
+  //     url: modalURL,
+  //     method: "GET"
+  //   }).then(function(response) {
+  //     console.log(response);
+  //   });
+  // };
 
-  $(document).on("click", "#c3", function (event) {
-    console.log(event.target);
-    var state = $(event.target).data("state");
-    var park = $(event.target).data("park");
-    console.log(state);
-    console.log(park);
-    modalQuery(state, park);
-  })
+  // $("#card").on("click",function(){
+  //   console.log("you got clicked");
+  // })
 
-  function modalQuery(state, park) {
-    var modalURL = "https://developer.nps.gov/api/v1/parks?parkCode=" + park + "&stateCode=" + state + "&api_key=" + APIKey
-
-    console.log(modalURL);
-    $.ajax({
-      url: modalURL,
-      method: "GET"
-    }).then(function(response) {
-      console.log(response);
-    });
-  };
-
-  $("#card").on("click",function(){
-    console.log("you got clicked");
-  })
 
 // API Key from OpenWeatherMap API (https://openweathermap.com/)
+
   var weatherAPIKey = "a441b767e75a3e228f7eed9d35168238"
+  var selectedNationalParkZipCode = "";
 
-  // search function for wather
-  function weather(searchWeather){
-    var city = $("#input").val().trim()
-    console.log(city)
-    var weatherQuery = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&APPID=" + weatherAPIKey;
-    console.log (weatherQuery);
+  // URL Variable
+  var weatherQuery = "https://api.openweathermap.org/data/2.5/weather?q=London,uk&APPID=" + weatherAPIKey;
 
+  $(document).ready(function(){
     $.ajax({
       url: weatherQuery,
       method: "GET"
     }).then(function(weatherResponse){
       console.log(weatherResponse)
 
-      var tempMin = weatherResponse.main.temp_min
-      var tempMax = weatherResponse.main.temp_max
+      var tempHigh = weatherResponse.main.temp_max;
+      var tempLow = weatherResponse.main.temp_min;
       var humidity = weatherResponse.main.humidity
-      var windSpeed = weatherResponse.wind.speed
-      var currentConditions = weatherResponse.weather[0].description
+      var windSpeed = weatherResponse.wind.speed;
 
-      var convertedTempMin = ((tempMin - 273.15)*9)/5 + 32;
-      var convertedTempMax = ((tempMax - 273.15)*9)/5 + 32;
-      var windSpeed = windSpeed * 2.236
-      
-      console.log(currentConditions)
-      console.log("Humidity: " + humidity + "%")
-      console.log("Temp Low: " + convertedTempMin + "F")
-      console.log("Temp High: " + convertedTempMax + "F")
-      console.log("Wind Speed: " + windSpeed + "mph")
-
-      var weatherCol = $("<div>").attr("class", "col s12")
-      var weatherCard = $("<div>").attr("class", "card")
-      var weatherTempMin = $("<p>").attr(tempMin)
-      var weatherTempMax = $("<p>").attr(tempMax)
-
-      weatherCard.append(weatherTempMin)
-      weatherCard.append(weatherTempMax)
-      weatherCol.append(weatherCard)
-      $("#card-row").append(weatherCol)
+      var weather
+      var card1Col = $("<div>").attr("class", "col s4");
+        var card1 = $("<div>").attr("class","card");
+        var card1Image = $("<img>").attr("src", "https://www.nps.gov/common/uploads/structured_data/3C7FE3B8-1DD8-B71B-0B91991C4D692710.jpg")
+        card1Image.attr("class", "card-title");
     })
-  }
+  })
 
   M.toast({html: 'Leave us a message!'}).window
