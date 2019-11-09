@@ -1,129 +1,115 @@
 body {
-    font-family: "Montserrat", "Open San", "Roboto";
     background-image: url("../images/Lassen.jpg");
     background-size: cover, auto, auto;
     background-position: auto;
     background-repeat: no-repeat;
     background-attachment: fixed;
     list-style-position: inside;
+    font-size: 16px;
     display: flex;
     min-height: 100vh;
     flex-direction: column;
-    font-size: 16px;
 }
 
-#card-container, #contact-box {
+header {
+    display: flex;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
     flex: 1 0 auto;
 }
 
 nav {
     background-color: #37412E;
-    height: 65px;
-    top: 0;
-    width: 100%;
     transition: top 0.3s;
 }
 
-#title{
-    text-decoration: none;
+#npg-logo {
+    height: 60px;
+    width: 60px;
+    margin: 2px 5px
 }
 
-a.brand-logo:hover {
-    color: #CF865D;
+#btn-search, #btn-weather {
+    width: 50%;
+    color: #EBF5EE;
+    background-color: #C56C39;
 }
 
-#nav-logo {
+.btn, .btn-large {
+    background-color: #C56C39;
+}
+
+.btn:hover, .btn-large:hover {
+    background-color: #CF865D;
+}
+
+form {
+    margin: 20px 30px 10px 30px;
+    padding: 10px;
+    background-color: #37412EB3;
+}
+
+.tabs {
+    background-color: transparent;
+}
+
+.featured-parks, .searched-parks, .new-member, .searched-weather {
+    width: auto;
+    background-color: #37412EB3;
+    margin: 20px 30px 10px 30px;
+    color: #EBF5EE;
     text-align: center;
 }
 
-.btn {
-    background-color: #c56c39;
-    color: #EBF5EE;
-    box-shadow: 0 5px 15px rgba(0,0,0,.5);
-}
-
-.btn:hover {
-    background-color: #CF865D;
-    color: #EBF5EE;
-}
-
-#logo {
-    height: 50px;
-    width: 50px;
-    margin: 5px;
-}
-
-#main-bio, #contact-box {
-    padding-left: 15px;
-    background-color: #37412EB3;
-    text-emphasis: bolder;
-    color:#EBF5EE;
-    position: relative;
-    padding: 50px;
-    box-shadow: 0 5px 15px rgba(0,0,0,.5);
-    align-self: center;
-    align-self: stretch;
-}
-
-.container {
-    margin-top: 20px;
-    padding: 0px;
-}
-
-#featured-parks {
-    padding: 0px;
-}
-.col.s4 {
-    margin: 5px;
-    padding: 0px;
-}
-
-.col.s12 {
-    padding: 0px;
+h4 {
+    height: auto;
+    padding: 10px;
+    margin: 10px;
 }
 
 .card {
-    background-color: #37412EB3;
+    background-color: #37412E;
     color: #EBF5EE;
+    text-align: justify;
     box-shadow: 0 5px 15px rgba(0,0,0,.5);
     padding: 0px;
 }
 
-#card-1-title, #card-2-title, #card-3-title {
-    text-align: center;
-    color: #EBF5EE;
-    padding: 10px, 5px, 10px, 5px;
-}
-
-#card-1-content, #card-2-content, #card-3-content {
+.card .card-content {
     padding: 10px;
 }
 
-.input-field {
-    color: #EBF5EE;
+.card-directions {
+    padding: 10px;
 }
 
 .card-title {
-    width: 100%;
     text-align: center;
+    color: #EBF5EE;
     padding: 5px;
 }
 
-#content {
-    padding: 10px;
+.card-content {
     text-align: justify;
 }
 
-.card-weather {
-    padding: 10px;
-    text-align: justify;
+.carousel {
+    height: 720px;
 }
 
-#featured-parks {
-    background-color: #37412EB3;
-    text-align: center;
-    color: #EBF5EE;
-    box-shadow: 0 5px 15px rgba(0,0,0,.5);
+.carousel .carousel-item {
+    visibility: visible;
+}
+
+img {
+    width: 100%;
+}
+
+.page-footer {
+    background-color: #37412E;
 }
 
 .valid, .validate {
@@ -148,19 +134,4 @@ input.valid:not([type=text]):focus {
 input.valid:not([type=email]):focus {
     border-bottom: 1px solid #CF865D;
     box-shadow: 0 1px 0 0 #CF865D;
-}
-
-#footer-container {
-    padding-bottom: 20px;
-}
-
-#page-footer {
-    background-color: #37412E;
-    bottom: 0;
-}
-
-#search-parks, #search-weather {
-    width: 100%;
-    height: 40px;
-    padding: 0;
 }
