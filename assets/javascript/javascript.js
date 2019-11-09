@@ -238,10 +238,9 @@
     console.log("Errors handled: " + errorObject.code);
   }
 
-
+// on click feature that begins the 'openweathermap' API call below
   $("#weather-search").on("click", function(){
   
-    // on search feature, logging input search value
     var weatherCityName = $("#input-weather").val().trim()
     console.log(weatherCityName)
     weather(weatherCityName);
@@ -283,6 +282,7 @@ function weather(weatherCityName) {
       var calcWindSpeed = Math.round(windSpeed * 2.20);
       console.log("Wind Speed: " + calcWindSpeed + "mph")
 
+      // building table inputs
       var input = $("<tr>");
       $("tbody").append(input);
         $(input).append("<td>" + weatherCityName);
@@ -291,20 +291,10 @@ function weather(weatherCityName) {
         $(input).append("<td>" + calcTempLow);
         $(input).append("<td>" + humidity);
         $(input).append("<td>" + calcWindSpeed)
-
-      // building card - 3
-      var cardColumn = $("<div>").attr("class", "col s12")
-      var card = $("<div>").attr("class", "card")
-      var cardInfo = $("<div>").attr("class", "card-info")
-        cardInfo.attr("data", calcWindSpeed)
-      var cardTitle = $("<h4>", "Weather")
-      
-        // cardTitle.text(cardTitle)
-        cardColumn.append(card)
-        $("#card-weather-row").prepend(cardColumn)
     })
   }
 
+// tab feature to hide/show certain divs within the index.html file
 function tabs(){
   $(".search-weather").hide()
   $("#searched-weather").hide()
@@ -336,10 +326,12 @@ function tabs(){
   })
 }
 
+// carousel feature that currently only half works
 function carousel() {
   $('.carousel.carousel-slider').carousel({
     fullWidth: true
   });
 }
 
-M.toast({html: 'National Parks reduce hours and staff from November 30th - April 1st. Check with your local park for Winter Season Operating Hours and Road Closures.', classes: 'rounded'});
+// toast feature to notify users
+M.toast({html: 'National Parks reduce hours and staff from November 30th - April 1st. <br><br> Contatct your local park for Winter Season Operating Hours and Road Closures.', classes: 'rounded'});
