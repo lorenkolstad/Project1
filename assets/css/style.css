@@ -22,7 +22,7 @@ main {
 }
 
 nav {
-    background-color: #37412E;
+    background-color: black;
     transition: top 0.3s;
 }
 
@@ -46,20 +46,39 @@ nav {
     background-color: #CF865D;
 }
 
+#btn-search:hover, #btn-weather:hover {
+    background-color: #CF865D;
+}
 form {
-    margin: 20px 30px 10px 30px;
+    margin: 10px 20px 10px 20px;
     padding: 10px;
     background-color: #37412EB3;
 }
 
+#contacts {
+    margin: 20px;
+}
 .tabs {
     background-color: transparent;
+}
+
+.welcome-contact {
+    background-color: transparent;
+    color: #EBF5EE;
+    text-align: center;
+    margin: 15px;
+}
+
+.welcome {
+    background-color: transparent;
+    color: #EBF5EE;
+    text-align: center;
 }
 
 .featured-parks, .searched-parks, .new-member, .searched-weather {
     width: auto;
     background-color: #37412EB3;
-    margin: 20px 30px 10px 30px;
+    margin: 10px 20px 10px 20px;
     color: #EBF5EE;
     text-align: center;
 }
@@ -67,6 +86,10 @@ form {
 h4 {
     height: auto;
     padding: 10px;
+    margin: 10px;
+}
+
+p {
     margin: 10px;
 }
 
@@ -96,6 +119,21 @@ h4 {
     text-align: justify;
 }
 
+.show-member-info {
+    margin: 10px;
+}
+
+.member-name {
+    text-align: center;
+    font-style: italic;
+    padding: 5px
+}
+
+#member-email, #member-message {
+    text-align: center;
+    padding: 5px
+}
+
 .carousel {
     height: 720px;
 }
@@ -108,8 +146,14 @@ img {
     width: 100%;
 }
 
-.page-footer {
-    background-color: #37412E;
+th {
+    width: 16%;
+
+    font-style: italic;
+}
+
+label {
+    color: #EBF5EE;
 }
 
 .valid, .validate {
@@ -134,4 +178,15 @@ input.valid:not([type=text]):focus {
 input.valid:not([type=email]):focus {
     border-bottom: 1px solid #CF865D;
     box-shadow: 0 1px 0 0 #CF865D;
+}
+
+.page-footer {
+    background-color: black;
+}
+
+.toast {
+    background-color: red;
+    color: #EBF5EE;
+    font-weight: bold;
+    width: 250px;
 }

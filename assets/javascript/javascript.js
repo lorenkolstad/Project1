@@ -103,9 +103,10 @@
     searchNationalPark = $("#input-park").val().trim()
     console.log(searchNationalPark)
     search(searchNationalPark);
+    $(".searched-parks").show()
   })
 
-//search function that acutally searches the National Park Service API
+// search function that acutally searches the National Park Service API
   function search(searchNationalPark){
     var queryURLSearch = "https://developer.nps.gov/api/v1/parks?q=" + searchNationalPark + "&api_key=" + APIKey + "&fields=images";
     console.log (queryURLSearch);
@@ -205,10 +206,6 @@
       message: message,
       dateAdded: firebase.database.ServerValue.TIMESTAMP,
     });
-
-    $("#member-name").text(firstName + " " + lastName);
-    $("#member-email").text(email);
-    $("#member-comment").text(message);
   });
 
   database.ref().orderByChild("dateAdded").on("child_added", function(childSnapshot){
@@ -216,11 +213,34 @@
     console.log(childSnapshot.val().lastName);
     console.log(childSnapshot.val().email);
     console.log(childSnapshot.val().message);
-  })
+
+    var cardColumn = $("<div>").attr("class", "col s12")
+    var card = $("<div>").attr("class", "card")
+    var memberInfo = $("<div>").attr("class", "member-info")
+    var name = $("<h4>").attr("class", "member-name")
+    var emails = $("<p>").attr("id", "member-email")
+    var messages = $("<p>").attr("id", "member-message")
+
+      name.text(childSnapshot.val().firstName + " " + childSnapshot.val().lastName)
+      emails.text(childSnapshot.val().email)
+      messages.text(childSnapshot.val().message)
+
+    memberInfo.append(name)
+    memberInfo.append(emails)
+    memberInfo.append(messages)
+    card.append(memberInfo)
+    cardColumn.append(card)
+    $(".show-member-info").prepend(cardColumn)
+    $("#member-header").hide()
+    $("#leave-message").hide()
+
+  }), function(errorObject) {
+    console.log("Errors handled: " + errorObject.code);
+  }
 
 
   $("#weather-search").on("click", function(){
-    
+  
     // on search feature, logging input search value
     var weatherCityName = $("#input-weather").val().trim()
     console.log(weatherCityName)
@@ -239,15 +259,38 @@ function weather(weatherCityName) {
     }).then(function(weatherResponse){
       console.log(weatherResponse)
 
-      var tempHigh = weatherResponse.main.temp_max;
-      var calcTempHigh = "";
-      var tempLow = weatherResponse.main.temp_min;
-      var calcTempLow = ""
-      var humidity = weatherResponse.main.humidity
-      var windSpeed = weatherResponse.wind.speed;
-      var calcWindSpeed = windSpeed * 2.20;
+      var weatherCityName = weatherResponse.name
+      console.log(weatherCityName)
 
+      var currentConditions = weatherResponse.weather[0].description
+      console.log(currentConditions)
+
+      // high temp calculations
+      var tempHigh = weatherResponse.main.temp_max;
+      var calcTempHigh = Math.round(((tempHigh - 273.15) * 9)/5) + 32
+      console.log("High Temp: " + calcTempHigh)
+
+      // low temp calculations
+      var tempLow = weatherResponse.main.temp_min;
+      var calcTempLow = Math.round(((tempLow - 273.15) * 9)/5) + 32
+      console.log("Low Temp: " + calcTempLow)
+
+      var humidity = weatherResponse.main.humidity
+      console.log("Humidity: " + humidity)
+      
+      // wind calculations
+      var windSpeed = weatherResponse.wind.speed;
+      var calcWindSpeed = Math.round(windSpeed * 2.20);
       console.log("Wind Speed: " + calcWindSpeed + "mph")
+
+      var input = $("<tr>");
+      $("tbody").append(input);
+        $(input).append("<td>" + weatherCityName);
+        $(input).append("<td>" + currentConditions);
+        $(input).append("<td>" + calcTempHigh);
+        $(input).append("<td>" + calcTempLow);
+        $(input).append("<td>" + humidity);
+        $(input).append("<td>" + calcWindSpeed)
 
       // building card - 3
       var cardColumn = $("<div>").attr("class", "col s12")
@@ -258,15 +301,15 @@ function weather(weatherCityName) {
       
         // cardTitle.text(cardTitle)
         cardColumn.append(card)
-        $("#card-show-row").prepend(cardColumn)
+        $("#card-weather-row").prepend(cardColumn)
     })
   }
-
 
 function tabs(){
   $(".search-weather").hide()
   $("#searched-weather").hide()
   $("#weather-search").hide()
+  $(".searched-parks").hide()
 
   $("#btn-search").on("click", function(){
     $(".search-parks").show()
@@ -298,3 +341,5 @@ function carousel() {
     fullWidth: true
   });
 }
+
+M.toast({html: 'National Parks reduce hours and staff from November 30th - April 1st. Check with your local park for Winter Season Operating Hours and Road Closures.', classes: 'rounded'});

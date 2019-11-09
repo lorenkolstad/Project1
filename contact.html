@@ -34,7 +34,11 @@
 
     <main>
         <!-- Search Form with Tabs -->
-        <form class="col s12">
+        <form class="col s12" id="contacts">
+            <div class="welcome-contact">
+                <h4 class="header">We Love to Hear From Our NPGeeks!</h4>
+                <p>We read every comment left on our message board and will reply between 24-48hrs.</p>
+            </div>
             <div class="row">
                 <div class="input-field col s6">
                     <input id="first_name" type="text" class="validate">
@@ -63,11 +67,9 @@
             <a class="waves-effect waves-light btn" id="submit">Submit</a>
         </form>
         <div class="new-member" id="member-info">
-            <h4 class="header">New Member Sign-Up</h4>
+            <h4 class="header" id="member-header">NPGeek Message Board</h4>
+            <p id="leave-message">Leave us a message!</p>
             <div class="show-member-info">
-                <h6 id="member-name"></h6>
-                <h6 id="member-email"></h6>
-                <p id="member-comment"></p>
             </div>
         </div>
     </main>

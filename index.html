@@ -32,8 +32,15 @@
     </header>
 
     <main>
+        <!-- <div class="welcome">
+            <h4 class="header">Welcome Park Geeks!</h4>
+        </div> -->
+        
         <!-- Search Form with Tabs -->
         <form id="form-1-parks">
+                <div class="welcome">
+                        <h4 class="header">Welcome Park Geeks!</h4>
+                    </div>
             <div class="tabs">
                 <a class="waves-effect waves-light btn parks" id="btn-search">Search Parks</a>
                 <a class="waves-effect waves-light btn weather" id="btn-weather">Local Weather</a>
@@ -57,8 +64,9 @@
         </form>
 
         <div class="searched-parks" id="user-selected-parks">
-            <h4 class="header">Searched Parks</h4>
-            <p>Search for your favorite parks above!</p>
+            <h4 class="header">Plan Your Trip</h4>
+            <p>While you checkout the latest info on your favorite National Parks, we save your searches so you can revisit them anytime you please.</p>
+            <p>While out on the trail, it's comforting to know that we have your back!</p>
             <div class="show-searched-parks" id="searched-parks">
                 <div class="row" id="card-show-row">
                 </div>
@@ -66,8 +74,10 @@
         </div>
 
         <div class="featured-parks" id="featured-parks">
-            <h4 class="header">Featured Parks</h4>
+            <h4 class="header">Parks of the Month: November 2019</h4>
+            <p>Each month our NPGeek Team picks three of the nations best parks to feature! We look for a wide variety of parks that feature: interesting locations, scenic views, unusal interests and of course the best park trails!</p>
             <p>Plan your next trip to one of our featured National Parks!</p>
+            <p>Happy Trails!</p>
             <div class="show-featured-parks" id="show-parks">
                 <div class="row" id="card-row">
                 </div>
@@ -75,11 +85,31 @@
         </div>
 
         <div class="searched-weather" id="searched-weather">
-            <h4 class="header">Weather</h4>
-            <p>Find the Current Conditions for your area!</p>
+            <h4 class="header">Park Weather</h4>
+            <p>The NPGeek Team knows the weather can change in an instant! We've been caught trekking through our far share of muddy trails.</p>
+            <p>Search for a city close to a National Park to view the 1hr Current Conditions for the park.</p>
+            <p>May the weather be in your favor.</p>
             <div class="show-weather" id="show-current">
-                <div class="row" id="card-weather-row">
-                </div>
+                <table class="striped">
+                    <thead>
+                        <tr>
+                            <th>City</th>
+                            <th>Current Conditions</th>
+                            <th>High Temp (F)</th>
+                            <th>Low Temp</th>
+                            <th>Humidity (%)</th>
+                            <th>Wind Speed (mph)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <td>Example City</td>
+                        <td>Sunny</td>
+                        <td>23</td>
+                        <td>77</td>
+                        <td>53</td>
+                        <td>4</td>
+                    </tbody>
+                </table>
             </div>
         </div>
     </main>
